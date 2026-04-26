@@ -1,0 +1,3632 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: advanced-chat
+  name: 论文检阅 test
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.11@35bcd3f233f99d07bdadef8b326945df3bda5e8f773330144bc90d84800336b9
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables:
+  - description: ''
+    id: 6c607331-88d5-4443-99b8-1d64816b41ce
+    name: saved_papers
+    selector:
+    - conversation
+    - saved_papers
+    value: ''
+    value_type: string
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1774339633549-source-1774339682711-target
+      selected: false
+      source: '1774339633549'
+      sourceHandle: source
+      target: '1774339682711'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1774256305461-source-1774606471601-target
+      selected: false
+      source: '1774256305461'
+      sourceHandle: source
+      target: '1774606471601'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1774606471601-source-1774606556906-target
+      selected: false
+      source: '1774606471601'
+      sourceHandle: source
+      target: '1774606556906'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1774606556906-source-1774606619044-target
+      selected: false
+      source: '1774606556906'
+      sourceHandle: source
+      target: '1774606619044'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1774606619044-false-1774617883743-target
+      selected: false
+      source: '1774606619044'
+      sourceHandle: 'false'
+      target: '1774617883743'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: iteration
+      id: 1774624848384-source-1774624936487-target
+      selected: false
+      source: '1774624848384'
+      sourceHandle: source
+      target: '1774624936487'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: llm
+      id: 1774624936487-source-1774625103150-target
+      selected: false
+      source: '1774624936487'
+      sourceHandle: source
+      target: '1774625103150'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1774625103150-source-1774625155159-target
+      selected: false
+      source: '1774625103150'
+      sourceHandle: source
+      target: '1774625155159'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1774606619044-cae035c1-6a32-40b8-b06d-c1bc9858b34c-1774625234282-target
+      selected: false
+      source: '1774606619044'
+      sourceHandle: cae035c1-6a32-40b8-b06d-c1bc9858b34c
+      target: '1774625234282'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1774625234282-source-1774625345273-target
+      selected: false
+      source: '1774625234282'
+      sourceHandle: source
+      target: '1774625345273'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1774634031862-source-1774634163782-target
+      selected: false
+      source: '1774634031862'
+      sourceHandle: source
+      target: '1774634163782'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: parameter-extractor
+      id: 1774606619044-true-1774636683134-target
+      selected: false
+      source: '1774606619044'
+      sourceHandle: 'true'
+      target: '1774636683134'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: code
+      id: 1774636683134-source-1774636716294-target
+      selected: false
+      source: '1774636683134'
+      sourceHandle: source
+      target: '1774636716294'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1774637471461-source-1774637700350-target
+      selected: false
+      source: '1774637471461'
+      sourceHandle: source
+      target: '1774637700350'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1774637700350-false-1774637767950-target
+      selected: false
+      source: '1774637700350'
+      sourceHandle: 'false'
+      target: '1774637767950'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: assigner
+      id: 1774637767950-source-1774637944613-target
+      selected: false
+      source: '1774637767950'
+      sourceHandle: source
+      target: '1774637944613'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1774638006985-source-1774638017717-target
+      selected: false
+      source: '1774638006985'
+      sourceHandle: source
+      target: '1774638017717'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1774606619044-333d3cd7-d2a3-4e02-9f8d-770bb23b87d0-17746427235430-target
+      selected: false
+      source: '1774606619044'
+      sourceHandle: 333d3cd7-d2a3-4e02-9f8d-770bb23b87d0
+      target: '17746427235430'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1774606619044-54f87416-2496-47fc-89e1-0b5d398f303d-17746428798690-target
+      selected: false
+      source: '1774606619044'
+      sourceHandle: 54f87416-2496-47fc-89e1-0b5d398f303d
+      target: '17746428798690'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 17746428798690-source-1774634031862-target
+      selected: false
+      source: '17746428798690'
+      sourceHandle: source
+      target: '1774634031862'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1774646085966-false-1774637471461-target
+      selected: false
+      source: '1774646085966'
+      sourceHandle: 'false'
+      target: '1774637471461'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1774646085966-true-1774646447501-target
+      selected: false
+      source: '1774646085966'
+      sourceHandle: 'true'
+      target: '1774646447501'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1774646447501-source-17746465982170-target
+      selected: false
+      source: '1774646447501'
+      sourceHandle: source
+      target: '17746465982170'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17746465982170-false-1774646648150-target
+      selected: false
+      source: '17746465982170'
+      sourceHandle: 'false'
+      target: '1774646648150'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: assigner
+      id: 1774646648150-source-17746467836950-target
+      selected: false
+      source: '1774646648150'
+      sourceHandle: source
+      target: '17746467836950'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: llm
+      id: 17746467836950-source-17746468755040-target
+      selected: false
+      source: '17746467836950'
+      sourceHandle: source
+      target: '17746468755040'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 17746468755040-source-17746468298060-target
+      selected: false
+      source: '17746468755040'
+      sourceHandle: source
+      target: '17746468298060'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 17746465982170-true-17746469133620-target
+      selected: false
+      source: '17746465982170'
+      sourceHandle: 'true'
+      target: '17746469133620'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1774637700350-true-17746469133620-target
+      selected: false
+      source: '1774637700350'
+      sourceHandle: 'true'
+      target: '17746469133620'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: parameter-extractor
+      id: 1774606619044-5613a7cb-acd9-4b42-97ea-28870a41ddce-1774636683134-target
+      selected: false
+      source: '1774606619044'
+      sourceHandle: 5613a7cb-acd9-4b42-97ea-28870a41ddce
+      target: '1774636683134'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1774606619044-2f940653-f426-4b8c-a923-8fdadb45697d-1774642324391-target
+      selected: false
+      source: '1774606619044'
+      sourceHandle: 2f940653-f426-4b8c-a923-8fdadb45697d
+      target: '1774642324391'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 17766732088550-source-17766732200070-target
+      selected: false
+      source: '17766732088550'
+      sourceHandle: source
+      target: '17766732200070'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: http-request
+      id: 1774637944613-source-1777116813907-target
+      selected: false
+      source: '1774637944613'
+      sourceHandle: source
+      target: '1777116813907'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1776648874566-source-17771175082840-target
+      selected: false
+      source: '1776648874566'
+      sourceHandle: source
+      target: '17771175082840'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1777116813907-source-1777118612441-target
+      selected: false
+      source: '1777116813907'
+      sourceHandle: source
+      target: '1777118612441'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1777118612441-source-1774638006985-target
+      selected: false
+      source: '1777118612441'
+      sourceHandle: source
+      target: '1774638006985'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 17771175082840-source-17771244420170-target
+      selected: false
+      source: '17771175082840'
+      sourceHandle: source
+      target: '17771244420170'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 17771244420170-source-17766732088550-target
+      selected: false
+      source: '17771244420170'
+      sourceHandle: source
+      target: '17766732088550'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1774636716294-source-1777127894696-target
+      selected: false
+      source: '1774636716294'
+      sourceHandle: source
+      target: '1777127894696'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1774636716294-source-17771279125900-target
+      selected: false
+      source: '1774636716294'
+      sourceHandle: source
+      target: '17771279125900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1774636716294-source-17771279180490-target
+      selected: false
+      source: '1774636716294'
+      sourceHandle: source
+      target: '17771279180490'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1774636716294-source-17771279199060-target
+      selected: false
+      source: '1774636716294'
+      sourceHandle: source
+      target: '17771279199060'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: if-else
+      id: 1777127894696-source-1774646085966-target
+      selected: false
+      source: '1777127894696'
+      sourceHandle: source
+      target: '1774646085966'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: if-else
+      id: 17771279125900-source-1774646085966-target
+      selected: false
+      source: '17771279125900'
+      sourceHandle: source
+      target: '1774646085966'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: if-else
+      id: 17771279180490-source-1774646085966-target
+      selected: false
+      source: '17771279180490'
+      sourceHandle: source
+      target: '1774646085966'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: if-else
+      id: 17771279199060-source-1774646085966-target
+      selected: false
+      source: '17771279199060'
+      sourceHandle: source
+      target: '1774646085966'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1774642324391-source-1777128352868-target
+      selected: false
+      source: '1774642324391'
+      sourceHandle: source
+      target: '1777128352868'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1777128352868-source-1776648874566-target
+      selected: false
+      source: '1777128352868'
+      sourceHandle: source
+      target: '1776648874566'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 17746427235430-source-1777128606032-target
+      selected: false
+      source: '17746427235430'
+      sourceHandle: source
+      target: '1777128606032'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1777128606032-source-1774624848384-target
+      selected: false
+      source: '1777128606032'
+      sourceHandle: source
+      target: '1774624848384'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1774624936487'
+        sourceType: iteration-start
+        targetType: http-request
+      id: 1774624936487start-source-1777128691790-target
+      selected: false
+      source: 1774624936487start
+      sourceHandle: source
+      target: '1777128691790'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1774624936487'
+        sourceType: http-request
+        targetType: llm
+      id: 1777128691790-source-1774624948646-target
+      selected: false
+      source: '1777128691790'
+      sourceHandle: source
+      target: '1774624948646'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1774634163782-source-1777128852253-target
+      selected: false
+      source: '1774634163782'
+      sourceHandle: source
+      target: '1777128852253'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: llm
+      id: 1777128852253-source-1774339633549-target
+      selected: false
+      source: '1777128852253'
+      sourceHandle: source
+      target: '1774339633549'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: answer
+      id: 1774625345273-source-1777136441957-target
+      source: '1774625345273'
+      sourceHandle: source
+      target: '1777136441957'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables: []
+      height: 71
+      id: '1774256305461'
+      position:
+        x: -204.9094858345462
+        y: 53.88643242837733
+      positionAbsolute:
+        x: -204.9094858345462
+        y: 53.88643242837733
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params: {}
+          mode: chat
+          name: deepseek-reasoner
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 46be0def-f4f9-45b4-8b61-8f7f7563881e
+          role: system
+          text: "你是一位顶级的 AI 学术科学家。请仔细阅读以下抓取到的论文全文内容：\n<full_text>\n{{#1777128852253.body#}}\n\
+            </full_text>\n\n结合用户的提问：{{#sys.query#}}\n\n请为用户撰写一份详尽的“全文深度解析报告”。请使用严谨的学术口吻，并严格按照以下\
+            \ Markdown 格式输出：\n\n论文核心档案\n- 标题：[提取标题]\n- 核心问题：[这篇论文试图解决什么痛点？]\n\n方法论深度解析\n\
+            [详细解读论文提出的核心算法、模型架构或创新机制，说明它是如何运作的]\n\n实验与数据\n[提炼论文中最重要的实验设置、使用的数据集以及取得的最亮眼性能指标]\n\
+            \n 局限性与未来方向\n\n[基于全文内容，指出该研究目前的不足，以及作者提到的未来研究方向]\n核心准则】\n你将收到由爬虫抓取的网页内容。\n\
+            拒绝幻觉：如果抓取的内容包含“403 Forbidden”、“Access Denied”、“Enable Cookies”、“Cloudflare”或明显的错误提示，你必须停止解析，并直接回答：“抱歉，由于该期刊网站设有反爬虫防火墙，我无法直接读取全文内容。但我可以基于摘要为您提供核心分析。”\n\
+            核实内容：只有当你确认收到的文本确实包含论文的正文（如 Introduction, Methods, Results 等章节）时，才开始撰写深度报告。\n\
+            【异常处理准则】 如果你接收到的工具返回数据中包含 [SYSTEM_ERROR] 字样，或者内容是明显的报错代码（如 403, 404, Timeout），你必须立即停止正常的总结工作，并执行以下操作：\n\
+            向用户礼貌地致歉，说明遇到了网络波动或平台权限拦截。\n绝不允许瞎编乱造全文内容！\n尝试利用对话历史 <raw_data> 中仅有的一些信息（如标题、摘要）给用户一个简短的安慰性回答，或者建议用户提供直接的\
+            \ PDF 文件。\n"
+        selected: false
+        title: LLM (深度解析)
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '1774339633549'
+      position:
+        x: 1368.6995885621652
+        y: 575.8740147759722
+      positionAbsolute:
+        x: 1368.6995885621652
+        y: 575.8740147759722
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        answer: '{{#1774339633549.text#}}'
+        selected: false
+        title: 直接回复 4
+        type: answer
+        variables: []
+      height: 101
+      id: '1774339682711'
+      position:
+        x: 1672.016056266069
+        y: 575.8740147759722
+      positionAbsolute:
+        x: 1672.016056266069
+        y: 575.8740147759722
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 25
+        model:
+          completion_params: {}
+          mode: chat
+          name: deepseek-reasoner
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 99496a74-f5b8-4239-80c5-1e84defc449e
+          role: system
+          text: "你是一个高精度的学术意图路由与数据提取专家。\n你的任务是分析用户的当前提问，并结合上下文记忆，输出严格标准化的 JSON 提取结果。\n\
+            \n 提取规则（严格执行优先级）：\n 1. \"intent\" (意图) 判定： \n- search: 搜索、查找、找论文。 \n-\
+            \ cite: 查谁引用了这篇论文（被引记录）。 \n- recommend: 找相似、推荐相关论文。 \n- read: 阅读全文、总结内容、解读这篇论文、看全文。（注意：只要是针对论文本身内容的解析/总结，都归入\
+            \ read） \n- analyze: 专门分析这篇论文的“参考文献”、查它参考了谁、分析引文网络。 \n- save: 保存论文、添加到\
+            \ Zotero、收藏文献。\n\n 2. \"source_value\" (数据提取核心) 判定： \n\n根据意图，执行对应的提取策略：\
+            \ \n- 【新增最高优先级规则】：如果用户在提问中**直接粘贴了具体网址 (URL)**，无论意图是什么，你必须优先从用户提供的这段网址中提取出\
+            \ 40 位的 \"paperId\"（通常在 Semantic Scholar 链接的最末尾，一串由字母和数字组成的哈希值）。**绝对不要去\
+            \ <raw_data> 历史记录里拿旧数据的 ID！**\n\n- 如果意图是 [read] (读取全文内容)：你必须提取直达论文全文页的网址\
+            \ (优先提取 openAccessPdf 里的 url，没有则提取外层 url)。 \n- 如果意图是 [cite], [recommend],\
+            \ [analyze] 或 [save]：你必须提取论文的 \"paperId\" 字段（40位代码）。 \n- 特殊代指判定：如果用户说“保存第一篇”或“分析刚才那篇的参考文献”，去历史记录\
+            \ <raw_data> 里按顺序找到对应项的 \"paperId\"。 \n- 如果是 [search]：提取学术关键词。\n\n3. \"\
+            year\" 与 \"limit\" 判定：\n- 用户明确提到年份则提取，无则为空字符串 \"\"。\n- 用户明确提到篇数则提取（如是汉字数字请自动转化成阿拉伯数字，如一、二、三转为\
+            \ 1, 2, 3），无则默认输出 3。\n\n最终 JSON 输出格式：\n{\n  \"intent\": \"search | cite\
+            \ | recommend | read | analyze | save | error\",\n  \"source_type\": \"\
+            keyword | url | paperId\",\n  \"source_value\": \"根据意图优先级提取出的 ID 或 URL\
+            \ 或关键词\",\n  \"year\": \"2023\",\n  \"limit\": 3\n}\n\n【致命防错兜底（最高优先级）】：\
+            \ \n如果用户使用了代词（如“第一篇”、“这篇”、“上一篇”），但你审查后发现 <raw_data> 里面是空的（即没有历史搜索记录），或者找不到对应的论文信息：\
+            \ \n你必须强制将 \"intent\" 输出为 \"error\"！并将 \"source_value\" 输出为 \"NO_HISTORY\"\
+            。 （绝对不允许在这种情况下输出 cite, recommend, read 等正常指令！）\n“提取 ID 时，必须优先提取 40 位的\
+            \ paperId 字段。绝对禁止使用 W 开头的 ID 或增加 MAG: 前缀。”"
+        selected: false
+        title: LLM 9
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '1774606471601'
+      position:
+        x: -200.12716216887995
+        y: 183.93472875740142
+      positionAbsolute:
+        x: -200.12716216887995
+        y: 183.93472875740142
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\n\ndef main(json_text: str) -> dict:\n    try:\n\
+          \        # 1. 强力去除 DeepSeek 的思考过程 (<think>...</think>)\n        if \"</think>\"\
+          \ in json_text:\n            json_text = json_text.split(\"</think>\")[-1]\n\
+          \        \n        # 2. 使用正则表达式提取字符串中第一个 { 到最后一个 } 的内容\n        # 这样即使模型输出了多余的解释文字也能精准抓取\
+          \ JSON\n        match = re.search(r'\\{.*\\}', json_text, re.DOTALL)\n \
+          \       if match:\n            clean_str = match.group(0)\n        else:\n\
+          \            # 备选方案：原有的清理逻辑\n            clean_str = json_text.replace(\"\
+          ```json\", \"\").replace(\"```\", \"\").strip()\n        \n        # 3.\
+          \ 解析 JSON\n        data = json.loads(clean_str)\n        \n        intent\
+          \ = data.get(\"intent\", \"\")\n        source_value = str(data.get(\"source_value\"\
+          , \"\"))\n        \n        # 4. 保留你原有的 ArXiv 特殊处理逻辑\n        if \"arxiv.org\"\
+          \ in source_value:\n            # A. 如果是 PDF 链接，修正为网页版链接 (abs)\n       \
+          \     if \"/pdf/\" in source_value:\n                source_value = source_value.replace(\"\
+          /pdf/\", \"/abs/\")\n            if source_value.endswith(\".pdf\"):\n \
+          \               source_value = source_value[:-4]\n            \n       \
+          \     # B. 如果意图是“深度解析(read)”，开启 ar5iv 模式\n            if intent == \"read\"\
+          :\n                source_value = source_value.replace(\"arxiv.org\", \"\
+          ar5iv.org\")\n\n        # 5. 提取参数\n        try:\n            final_limit\
+          \ = int(data.get(\"limit\", 3))\n        except:\n            final_limit\
+          \ = 3\n\n        return {\n            \"pure_value\": source_value,\n \
+          \           \"year\": str(data.get(\"year\", \"\")),\n            \"limit\"\
+          : final_limit\n        }\n        \n    except Exception as e:\n       \
+          \ # 如果解析彻底失败，尝试返回一个极简结构防止下游节点崩溃\n        return {\n            \"pure_value\"\
+          : \"ERROR_PARSING\",\n            \"year\": \"\",\n            \"limit\"\
+          : 3\n        }"
+        code_language: python3
+        outputs:
+          limit:
+            children: null
+            type: number
+          pure_value:
+            children: null
+            type: string
+          year:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 4
+        type: code
+        variables:
+        - value_selector:
+          - '1774606471601'
+          - text
+          value_type: string
+          variable: json_text
+      height: 50
+      id: '1774606556906'
+      position:
+        x: -204.9094858345462
+        y: 305.73300128713413
+      positionAbsolute:
+        x: -204.9094858345462
+        y: 305.73300128713413
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 8ca375fa-e2e5-4f10-b6eb-6533d601dfcb
+            value: '"search"'
+            varType: string
+            variable_selector:
+            - '1774606471601'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: 2f940653-f426-4b8c-a923-8fdadb45697d
+          conditions:
+          - comparison_operator: contains
+            id: 96f52096-749d-40af-9283-d008f2b34700
+            value: '"cite"'
+            varType: string
+            variable_selector:
+            - '1774606471601'
+            - text
+          id: 2f940653-f426-4b8c-a923-8fdadb45697d
+          logical_operator: and
+        - case_id: 5613a7cb-acd9-4b42-97ea-28870a41ddce
+          conditions:
+          - comparison_operator: contains
+            id: 9b2ba8cd-416b-4ab7-9546-bdc7b008e095
+            value: '"recommend"'
+            varType: string
+            variable_selector:
+            - '1774606471601'
+            - text
+          id: 5613a7cb-acd9-4b42-97ea-28870a41ddce
+          logical_operator: and
+        - case_id: 54f87416-2496-47fc-89e1-0b5d398f303d
+          conditions:
+          - comparison_operator: contains
+            id: 8faa76ee-b7ca-496d-83a8-58b4ae073c20
+            value: '"read"'
+            varType: string
+            variable_selector:
+            - '1774606471601'
+            - text
+          id: 54f87416-2496-47fc-89e1-0b5d398f303d
+          logical_operator: and
+        - case_id: 333d3cd7-d2a3-4e02-9f8d-770bb23b87d0
+          conditions:
+          - comparison_operator: contains
+            id: 6880cf68-fbe5-44c2-89a4-2876086c62e3
+            value: '"analyze"'
+            varType: string
+            variable_selector:
+            - '1774606471601'
+            - text
+          id: 333d3cd7-d2a3-4e02-9f8d-770bb23b87d0
+          logical_operator: and
+        - case_id: cae035c1-6a32-40b8-b06d-c1bc9858b34c
+          conditions:
+          - comparison_operator: contains
+            id: 1d4c25f0-0214-448c-ab32-7206ad565695
+            value: '"save"'
+            varType: string
+            variable_selector:
+            - '1774606471601'
+            - text
+          id: cae035c1-6a32-40b8-b06d-c1bc9858b34c
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 386
+      id: '1774606619044'
+      position:
+        x: -204.9094858345462
+        y: 375.23155541549534
+      positionAbsolute:
+        x: -204.9094858345462
+        y: 375.23155541549534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        answer: 抱歉，学术大脑没有听懂您的指令，请提供明确的关键词或论文链接。
+        selected: false
+        title: 直接回复 6
+        type: answer
+        variables: []
+      height: 114
+      id: '1774617883743'
+      position:
+        x: -200.12716216887995
+        y: 807.9108736573381
+      positionAbsolute:
+        x: -200.12716216887995
+        y: 807.9108736573381
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\n\ndef main(**kwargs):\n    raw_text = kwargs.get(\"raw_text\"\
+          , \"{}\")\n    try:\n        parsed = json.loads(raw_text)\n        papers\
+          \ = parsed.get(\"data\", [])\n        \n        url_list = []\n        for\
+          \ p in papers:\n            info = p.get(\"citedPaper\") or p.get(\"citingPaper\"\
+          ) or p\n            \n            # \U0001F4A1 核心破解逻辑：优先寻找免费的 PDF 原文链接！\n\
+          \            pdf_info = info.get(\"openAccessPdf\")\n            url = \"\
+          \"\n            if pdf_info and isinstance(pdf_info, dict):\n          \
+          \      url = pdf_info.get(\"url\", \"\")\n            \n            # 如果没有公开的\
+          \ PDF，再退而求其次用它的官方网页链接\n            if not url:\n                url = info.get(\"\
+          url\", \"\")\n            \n            if url and isinstance(url, str)\
+          \ and url.startswith(\"http\"):\n                url_list.append(url)\n\
+          \        \n        return {\"clean_urls\": url_list[:9]}\n        \n   \
+          \ except Exception as e:\n        return {\"clean_urls\": []}"
+        code_language: python3
+        outputs:
+          clean_urls:
+            children: null
+            type: array[string]
+        selected: false
+        title: 代码执行 5
+        type: code
+        variables:
+        - value_selector:
+          - '1777128606032'
+          - body
+          value_type: string
+          variable: raw_text
+      height: 50
+      id: '1774624848384'
+      position:
+        x: 150.01307797223205
+        y: 996.1787258176504
+      positionAbsolute:
+        x: 150.01307797223205
+        y: 996.1787258176504
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        error_handle_mode: terminated
+        flatten_output: true
+        height: 282
+        is_parallel: false
+        iterator_input_type: array[string]
+        iterator_selector:
+        - '1774624848384'
+        - clean_urls
+        output_selector:
+        - '1774624948646'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1774624936487start
+        title: 迭代
+        type: iteration
+        width: 686
+      height: 282
+      id: '1774624936487'
+      position:
+        x: 468.9434865832064
+        y: 797.9607186923486
+      positionAbsolute:
+        x: 468.9434865832064
+        y: 797.9607186923486
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 686
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1774624936487start
+      parentId: '1774624936487'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 492.9434865832064
+        y: 865.9607186923486
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1774624936487'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 52581ef1-f97a-4e55-83bd-8ee7c508b2dd
+          role: system
+          text: '论文链接：{{#1774624936487.item#}}
+
+            以下是经过抓取的论文全文：
+
+            ---
+
+            {{#1777128606032.body#}}
+
+            ---(如果没有内容，请无视这一条)
+
+
+            任务：请深度阅读全文，提取出以下三个信息：
+
+            1. 论文标题（通常在文章开头）
+
+            2. 明确使用的数据集名称（如果是自建请说明）
+
+            3. 核心创新方法
+
+
+            请严格按照以下统一格式输出，不要说多余的废话：
+
+            【标题】[填入你提取的标题]
+
+            【链接】{{#1774624936487.item#}}
+
+            【数据与方法】数据集：[填入数据集]；创新方法：[填入方法]'
+        selected: false
+        title: LLM 7
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '1774624948646'
+      parentId: '1774624936487'
+      position:
+        x: 409.133920269812
+        y: 84.86607973018783
+      positionAbsolute:
+        x: 878.0774068530184
+        y: 882.8267984225364
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 46b67ef2-6c08-4d09-af84-02690fb4ec57
+          role: system
+          text: '以下是经过 Jina Reader 深度阅读提取的 几 篇核心参考文献信息：
+
+            </data>
+
+            {{#1774624936487.output#}}
+
+            </data>
+
+            (如果data不存在，则合理拒绝输出)
+
+            请将这些数据转换为清晰的 Markdown 表格，严禁输出任何多余的开场白。格式如下：
+
+            | 文章标题 | 文章链接 | 经过全文核实的数据集|创新方法 |
+
+            | :--- | :--- | :--- | :--- |'
+        selected: false
+        title: LLM 8
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '1774625103150'
+      position:
+        x: 1219.3688024125504
+        y: 797.9607186923486
+      positionAbsolute:
+        x: 1219.3688024125504
+        y: 797.9607186923486
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        answer: '{{#1774625103150.text#}}'
+        selected: false
+        title: 直接回复 7
+        type: answer
+        variables: []
+      height: 101
+      id: '1774625155159'
+      position:
+        x: 1219.3688024125504
+        y: 905.93836406207
+      positionAbsolute:
+        x: 1219.3688024125504
+        y: 905.93836406207
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(target_id: str, saved_papers: str) -> dict:\n    import json\n\
+          \    try:\n        papers = json.loads(saved_papers)\n        target_paper\
+          \ = None\n        target_id = str(target_id).strip()\n        \n       \
+          \ # 1. 智能匹配：不光比对 paperId，也支持比对 url\n        if isinstance(papers, list):\n\
+          \            for p in papers:\n                if not isinstance(p, dict):\n\
+          \                    continue\n                p_id = str(p.get(\"paperId\"\
+          , \"\")).strip()\n                p_url = str(p.get(\"url\", \"\")).strip()\n\
+          \                \n                # 如果 target_id 和 paperId 匹配，或者 target_id\
+          \ 是这篇论文的 URL，都算命中！\n                if (p_id and p_id == target_id) or (p_url\
+          \ and target_id in p_url):\n                    target_paper = p\n     \
+          \               break\n        \n        # 2. 如果还是找不到，为了防止 Zotero 报错崩溃，返回空数组\n\
+          \        if not target_paper:\n            return {\"zotero_payload\": \"\
+          []\"}\n            \n        # 3. 智能解析作者格式\n        raw_authors = target_paper.get(\"\
+          authors\", \"\")\n        creators = []\n        if isinstance(raw_authors,\
+          \ str):\n            names = [n.strip() for n in raw_authors.split(\",\"\
+          ) if n.strip()]\n            for name in names:\n                creators.append({\"\
+          creatorType\": \"author\", \"name\": name})\n        elif isinstance(raw_authors,\
+          \ list):\n            for item in raw_authors:\n                if isinstance(item,\
+          \ str):\n                    creators.append({\"creatorType\": \"author\"\
+          , \"name\": item})\n                elif isinstance(item, dict):\n     \
+          \               creators.append({\"creatorType\": \"author\", \"name\":\
+          \ item.get(\"name\", \"Unknown\")})\n        \n        # 4. 【核心修复】：Zotero\
+          \ 严格要求最外层必须是 JSON Array (中括号 [...])\n        zotero_item_array = [{\n  \
+          \          \"itemType\": \"journalArticle\",\n            \"title\": target_paper.get(\"\
+          title\", \"Unknown Title\"),\n            \"creators\": creators,\n    \
+          \        \"url\": target_paper.get(\"url\", \"\"),\n            \"date\"\
+          : str(target_paper.get(\"year\", \"\"))\n        }]\n        \n        return\
+          \ {\"zotero_payload\": json.dumps(zotero_item_array)}\n        \n    except\
+          \ Exception as e:\n        # 发生任何异常，都返回空数组保平安\n        return {\"zotero_payload\"\
+          : \"[]\"}"
+        code_language: python3
+        outputs:
+          zotero_payload:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 6
+        type: code
+        variables:
+        - value_selector:
+          - conversation
+          - saved_papers
+          value_type: string
+          variable: saved_papers
+        - value_selector:
+          - '1774606556906'
+          - pure_value
+          value_type: string
+          variable: target_id
+      height: 50
+      id: '1774625234282'
+      position:
+        x: 150.01307797223205
+        y: 1111.1542506824553
+      positionAbsolute:
+        x: 150.01307797223205
+        y: 1111.1542506824553
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-355
+            key: ''
+            type: text
+            value: '{{#1774625234282.zotero_payload#}}'
+          type: raw-text
+        default_value:
+        - key: body
+          type: string
+          value: ' '
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: 'Zotero-API-Key:0tIJMPylfGbGoyh48fHPxL3g
+
+          Content-Type:application/json'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求
+        type: http-request
+        url: https://api.zotero.org/users/20076403/items
+        variables: []
+      height: 172
+      id: '1774625345273'
+      position:
+        x: 435.83335369956006
+        y: 1111.1542506824553
+      positionAbsolute:
+        x: 435.83335369956006
+        y: 1111.1542506824553
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: '{"error": "not_found"}'
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: x-api-key:pXhdpHiwYv6oxwOiZp8ts3wZoCiRLrea4GDLWPn0
+        method: get
+        params: fields:openAccessPdf
+        retry_config:
+          max_retries: 2
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 2
+        type: http-request
+        url: https://api.semanticscholar.org/graph/v1/paper/{{#17746428798690.api_path#}}?fields=openAccessPdf,url
+        variables: []
+      height: 206
+      id: '1774634031862'
+      position:
+        x: 427.0512667476318
+        y: 575.8740147759722
+      positionAbsolute:
+        x: 427.0512667476318
+        y: 575.8740147759722
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(http_body: str, original_url: str) -> dict:\n    import json\n\
+          \    \n    # 【核心修复 1】：如果最初传来的是纯 ID，强行给它拼装成一个真实的兜底网址\n    fallback_url =\
+          \ original_url.strip()\n    if not fallback_url.startswith(\"http\"):\n\
+          \        if fallback_url.startswith(\"W\"):\n            fallback_url =\
+          \ f\"https://openalex.org/{fallback_url}\"\n        elif \".\" in fallback_url\
+          \ and len(fallback_url) < 15:\n            fallback_url = f\"https://arxiv.org/abs/{fallback_url}\"\
+          \n        else:\n            fallback_url = f\"https://www.semanticscholar.org/paper/{fallback_url}\"\
+          \n            \n    final_url = fallback_url\n    status = \"use_fallback\"\
+          \n    \n    try:\n        data = json.loads(http_body)\n        \n     \
+          \   # 【核心修复 2】：如果 API 查到了官方网址，优先使用\n        if \"url\" in data and data[\"\
+          url\"]:\n            final_url = data[\"url\"]\n            status = \"\
+          use_official_url\"\n        \n        # 【核心修复 3】：如果 API 查到了免费的开源 PDF，最高优先级使用！\n\
+          \        if \"openAccessPdf\" in data and data[\"openAccessPdf\"] and data[\"\
+          openAccessPdf\"].get(\"url\"):\n            oa_url = data[\"openAccessPdf\"\
+          ][\"url\"].strip()\n            if oa_url: \n                if \"arxiv.org\"\
+          \ in oa_url:\n                    if \"/pdf/\" in oa_url:\n            \
+          \            oa_url = oa_url.replace(\"/pdf/\", \"/abs/\")\n           \
+          \         if oa_url.endswith(\".pdf\"):\n                        oa_url\
+          \ = oa_url[:-4]\n                    final_url = oa_url.replace(\"arxiv.org\"\
+          , \"ar5iv.org\")\n                    status = \"converted_to_ar5iv\"\n\
+          \                else:\n                    final_url = oa_url\n       \
+          \             status = \"use_other_open_access\"\n                    \n\
+          \    except Exception as e:\n        pass # 解析报错就乖乖用 fallback_url\n    \
+          \    \n    # 如果最终选定的网址是 ArXiv，统一转换成 ar5iv 以获取最佳的全文抓取效果\n    if status in\
+          \ [\"use_fallback\", \"use_official_url\"] and \"arxiv.org\" in final_url:\n\
+          \        final_url = final_url.replace(\"arxiv.org\", \"ar5iv.org\").replace(\"\
+          /pdf/\", \"/abs/\")\n        \n    return {\n        \"final_url\": final_url,\n\
+          \        \"convert_status\": status\n    }"
+        code_language: python3
+        outputs:
+          convert_status:
+            children: null
+            type: string
+          final_url:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 7
+        type: code
+        variables:
+        - value_selector:
+          - '1774634031862'
+          - body
+          value_type: string
+          variable: http_body
+        - value_selector:
+          - '1774606556906'
+          - pure_value
+          value_type: string
+          variable: original_url
+      height: 50
+      id: '1774634163782'
+      position:
+        x: 781.8546066750713
+        y: 575.8740147759722
+      positionAbsolute:
+        x: 781.8546066750713
+        y: 575.8740147759722
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        instruction: "你是一个顶级的学术搜索参数提取引擎。你的核心任务是深刻理解用户的自然语言输入，识别其潜在的学术意图，并将其转化为精准、结构化的检索参数。\n\
+          【前置记忆池】 如果用户在提问中使用了代词（如“第一篇”、“刚才那篇”、“这篇”），请务必从以下为您保存的历史论文列表中，找到对应的那篇论文，提取它的标题和核心概念，作为本次搜索的基础：\
+          \ <history> {{#conversation.saved_papers#}} </history>\n【核心提取与推导规则】\n1.\
+          \ 概念映射 (Concept Mapping)：这是最重要的一步！如果用户描述的是一种宽泛的方法、现象、概念或非正式术语，你必须先将其映射为学术界标准的英文专业术语和概念作为关键词（然后将核心词记录在\
+          \ inferred_academic_terms 中）。\n   - 示例 1：用户说“让大模型变笨或者模拟不同认知水平”，映射为 \"capability\
+          \ control\", \"activation engineering\", \"unlearning\"。(非核心词不用映射，比如”大模型“作为一个相对普片概念的词，不用映射)\n\
+          \   - 示例 2：用户说“用矩阵指数化来处理序列”，映射为 \"state-space models\", \"matrix exponentiation\"\
+          , \"Mamba\"。\n   - 示例 3：用户说“识别和分割CAD工程图里的尺寸和几何”，映射为 \"CAD drawing analysis\"\
+          , \"view segmentation\", \"dimension recognition\"。\n2. 检索式构建 (Query Construction)：基于映射出的术语与用户意图，构建能在学术数据库中使用的核心搜索词填入\
+          \ `core_query`。\n3. 字段解耦 (Decoupling)：不要把作者、年份或期刊名称混入 `core_query` 中。这些限制条件必须被提取到对应的独立字段中。\n\
+          4. 隐性时间推算：请注意，当前年份是 2026 年。如果用户说“最新”或“今年”，请自行推算 year_start 和 year_end。\n\
+          5. 严格留空：如果用户没有明确提出某项限制（如没有提 CCF 等级，没有提具体期刊或作者），对应的字段必须严格输出 null 或留空，绝对不能自行脑补填充。\n\
+          \n【综合参考】\n用户输入：\"帮我找找近两年 Albert Gu 发在顶会上的关于Manba处理序列的矩阵指数化方法的文章。\"\n提取预期：\n\
+          - inferred_academic_terms: [\"Manba Model\",\"state-space models\", \"matrix\
+          \ exponentiation\", \"sequence modeling\"]\n- core_query: \"Manba AND state-space\
+          \ models AND matrix exponentiation\"\n- author: \"Albert Gu\"\n- venue:\
+          \ null (留空，“顶会”太泛)\n- year_start: 2025\n- year_end: 2026\n- ccf_ranking:\
+          \ \"A\" \n- limit: 5\n\n【克隆推荐与查引逻辑 (特种规则)】 如果用户的意图是推荐 (recommend) 或查引 (cite)，且提供了一篇具体论文（无论他给的是\
+          \ URL、ArXiv ID 还是标题）： 1. 你的首要任务是：结合用户的上下文或历史记录，判断这篇目标论文的**核心研究方向**或**关键技术**。\
+          \ 2. 将这篇目标论文中最核心的 2-3 个技术实体（英文）提取出来，使用 AND 或 OR 连接，填入 `core_query`。 - 示例：用户说“推荐几篇类似于\
+          \ 2103.14030 (Swin Transformer) 的文章”。你不需要输出 ID，而是提取并填入 `core_query: \"Vision\
+          \ Transformer\" AND \"Hierarchical architecture\"`。 3. 保持 `author` 和 `venue`\
+          \ 留空，让下游四个搜索引擎通过这些核心概念进行“泛搜”，从而完美克隆出多源的“相似文献推荐”效果！"
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        parameters:
+        - description: 用户的核心搜索关键词，必须翻译为专业的英文学术词汇。如果是多个维度的概念，用 AND 或 OR 连接。例如："Mamba"
+            AND "language modeling" 或 "capability control" OR "mechanistic interpretability"。
+          name: core_query
+          required: true
+          type: string
+        - description: '用户指定的特定作者姓名。如果包含多个作者，用英文逗号分隔。未提及留空。例如：Albert Gu, Tri Dao
+
+            '
+          name: author
+          required: false
+          type: string
+        - description: 用户指定的特定期刊、会议名称或其缩写。未提及留空。例如：CVPR, ACL, NeurIPS, Nature
+          name: venue
+          required: false
+          type: string
+        - description: 搜索的起始年份（4位数字）。如果用户说“近三年”（当前是 2026 年），则填入 2024。如果指定具体年份（如2023），则起始和结束均填该年份。未提及留空
+          name: year_start
+          required: false
+          type: number
+        - description: 搜索的结束年份（4位数字）。如果未指定结束时间但指定了起始时间，默认填入当前年份 2026。未提及留空。
+          name: year_end
+          required: false
+          type: number
+        - description: 用户指定的中国计算机学会（CCF）评级限制。只能从 A, B, C 中提取，如果有则填入单个大写字母。未提及留空
+          name: ccf_ranking
+          required: false
+          type: string
+        - description: 返回的论文数量限制。默认填 3
+          name: limit
+          required: true
+          type: number
+        - description: 将用户口语化、模糊的方法描述或领域描述，映射为几个个最精确的英文学术术语。例如将“让模型变笨”映射为 capability
+            control, activation engineering
+          name: inferred_academic_terms
+          required: true
+          type: array[string]
+        query:
+        - sys
+        - query
+        reasoning_mode: prompt
+        selected: false
+        title: 参数提取器plus
+        type: parameter-extractor
+        vision:
+          enabled: false
+      height: 86
+      id: '1774636683134'
+      position:
+        x: 103.50641851490593
+        y: -96.19970217016345
+      positionAbsolute:
+        x: 103.50641851490593
+        y: -96.19970217016345
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import re\nimport urllib.parse\n\ndef main(core_query: str, author:\
+          \ str, venue: str, year_start: int, year_end: int, limit: int) -> dict:\n\
+          \    core_query = core_query or \"\"\n    author = author or \"\"\n    venue\
+          \ = venue or \"\"\n    base_limit = limit or 5\n\n    # ==========================================\n\
+          \    # 融合“限制动态化”逻辑：放大检索基数\n    # ==========================================\n\
+          \    search_limit = base_limit * 5\n    rank_1_limit = base_limit * 5\n\
+          \    llm_rank = 0\n\n    # ==========================================\n\
+          \    # 核心优化：智能分流处理与清洗\n    # ==========================================\n\
+          \    q_no_quotes = core_query.replace('\"', '').strip()\n    clean_keywords\
+          \ = re.sub(r'\\s+(?i:AND|OR)\\s+', ' ', q_no_quotes)\n    clean_keywords\
+          \ = re.sub(r'\\s+', ' ', clean_keywords).strip()\n    tokens = [t.strip()\
+          \ for t in re.split(r'\\s+(?i:AND|OR)\\s+', q_no_quotes) if t.strip()]\n\
+          \n    # ---------------------------------------------------------\n    #\
+          \ 1. 组装 Semantic Scholar URL\n    # ---------------------------------------------------------\n\
+          \    s2_query_parts = []\n    if clean_keywords: s2_query_parts.append(clean_keywords)\n\
+          \    if author: s2_query_parts.append(author)\n    if venue: s2_query_parts.append(venue)\n\
+          \    s2_query = \" \".join(s2_query_parts).strip()\n    \n    safe_query\
+          \ = urllib.parse.quote(s2_query)\n    s2_url = f\"https://api.semanticscholar.org/graph/v1/paper/search?query={safe_query}&limit={search_limit}&fields=paperId,title,abstract,url,year,authors,venue,journal,citationCount,influentialCitationCount,references.title\"\
+          \n    \n    if year_start and year_end:\n        s2_url += f\"&year={year_start}-{year_end}\"\
+          \ if year_start != year_end else f\"&year={year_start}\"\n    elif year_start:\n\
+          \        s2_url += f\"&year={year_start}-\"\n    elif year_end:\n      \
+          \  s2_url += f\"&year=-{year_end}\"\n\n    # ---------------------------------------------------------\n\
+          \    # 2. 组装 OpenAlex URL\n    # ---------------------------------------------------------\n\
+          \    oa_search_parts = [clean_keywords]\n    if venue: oa_search_parts.append(venue)\n\
+          \    oa_search = \" \".join(oa_search_parts).strip()\n    \n    oa_filters\
+          \ = []\n    if author: oa_filters.append(f\"raw_author_name.search:{author}\"\
+          )\n    if year_start and year_end:\n        if year_start == year_end: oa_filters.append(f\"\
+          publication_year:{year_start}\")\n        else: oa_filters.append(f\"publication_year:{year_start}-{year_end}\"\
+          )\n    elif year_start: oa_filters.append(f\"publication_year:>{int(year_start)-1}\"\
+          )\n    elif year_end: oa_filters.append(f\"publication_year:<{int(year_end)+1}\"\
+          )\n         \n    oa_filter_str = \",\".join(oa_filters)\n    \n    oa_url\
+          \ = f\"https://api.openalex.org/works?search={urllib.parse.quote(oa_search)}&per_page={search_limit}\"\
+          \n    if oa_filter_str:\n        oa_url += f\"&filter={urllib.parse.quote(oa_filter_str)}\"\
+          \n\n    # ---------------------------------------------------------\n  \
+          \  # 3. 组装 arXiv URL\n    # ---------------------------------------------------------\n\
+          \    arxiv_query_parts = []\n    if tokens:\n        arxiv_phrases = [f'all:\"\
+          {token}\"' for token in tokens]\n        arxiv_search_query = \" AND \"\
+          .join(arxiv_phrases)\n    else:\n        arxiv_search_query = \"\"\n   \
+          \ \n    if author:\n        if arxiv_search_query: arxiv_search_query +=\
+          \ f' AND au:\"{author}\"'\n        else: arxiv_search_query = f'au:\"{author}\"\
+          '\n    if venue:\n        if arxiv_search_query: arxiv_search_query += f'\
+          \ AND jr:\"{venue}\"'\n        else: arxiv_search_query = f'jr:\"{venue}\"\
+          '\n        \n    if not arxiv_search_query: arxiv_search_query = 'all:\"\
+          machine learning\"'\n\n    arxiv_url = f\"http://export.arxiv.org/api/query?search_query={urllib.parse.quote(arxiv_search_query)}&start=0&max_results={search_limit}&sortBy=relevance&sortOrder=descending\"\
+          \n\n    # ---------------------------------------------------------\n  \
+          \  # 4. 组装 DBLP URL\n    # ---------------------------------------------------------\n\
+          \    dblp_parts = []\n    if clean_keywords: dblp_parts.extend(clean_keywords.split())\n\
+          \    if author: dblp_parts.extend(author.split())\n    \n    seen = set()\n\
+          \    dblp_unique = [w for w in dblp_parts if w.lower() not in seen and not\
+          \ seen.add(w.lower())]\n    dblp_query = \" \".join(dblp_unique).strip()\n\
+          \n    dblp_url = f\"https://dblp.org/search/publ/api?q={urllib.parse.quote(dblp_query)}&format=json&h={search_limit}\"\
+          \n\n    return {\n        \"s2_url\": s2_url,\n        \"oa_url\": oa_url,\n\
+          \        \"arxiv_url\": arxiv_url,\n        \"dblp_url\": dblp_url,\n  \
+          \      \"Search_limit\": search_limit,\n        \"Rank_1_limit\": rank_1_limit,\n\
+          \        \"LLM_Rank\": llm_rank\n    }"
+        code_language: python3
+        outputs:
+          LLM_Rank:
+            children: null
+            type: number
+          Rank_1_limit:
+            children: null
+            type: number
+          Search_limit:
+            children: null
+            type: number
+          arxiv_url:
+            children: null
+            type: string
+          dblp_url:
+            children: null
+            type: string
+          oa_url:
+            children: null
+            type: string
+          s2_url:
+            children: null
+            type: string
+        selected: false
+        title: 参数规整
+        type: code
+        variables:
+        - value_selector:
+          - '1774636683134'
+          - core_query
+          value_type: string
+          variable: core_query
+        - value_selector:
+          - '1774636683134'
+          - author
+          value_type: string
+          variable: author
+        - value_selector:
+          - '1774636683134'
+          - venue
+          value_type: string
+          variable: venue
+        - value_selector:
+          - '1774636683134'
+          - year_start
+          value_type: number
+          variable: year_start
+        - value_selector:
+          - '1774636683134'
+          - year_end
+          value_type: number
+          variable: year_end
+        - value_selector:
+          - '1774636683134'
+          - limit
+          value_type: number
+          variable: limit
+      height: 50
+      id: '1774636716294'
+      position:
+        x: 103.50641851490593
+        y: -234.3080739508352
+      positionAbsolute:
+        x: 103.50641851490593
+        y: -234.3080739508352
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\nimport xml.etree.ElementTree as ET\n\ndef normalize_title(title):\n\
+          \    \"\"\"标题标准化，用于跨库去重\"\"\"\n    if not title: return \"\"\n    return\
+          \ re.sub(r'[^a-z0-9]', '', title.lower())\n\ndef get_id_priority(pid):\n\
+          \    \"\"\"定义 ID 质量等级，解决 404 报错\"\"\"\n    pid = str(pid or \"\")\n    if\
+          \ len(pid) == 40 and re.match(r'^[a-fA-F0-9]+$', pid): return 3\n    if\
+          \ pid.startswith(\"10.\"): return 2\n    if pid.startswith(\"W\") and pid[1:].isdigit():\
+          \ return 1\n    return 0\n\ndef main(s2_res: str, oa_res: str, arxiv_res:\
+          \ str, dblp_res: str) -> dict:\n    if not any([s2_res.strip(), oa_res.strip(),\
+          \ arxiv_res.strip(), dblp_res.strip()]):\n        return {\"merged_papers_json\"\
+          : \"F\", \"saved_papers_compact\": \"[]\", \"graph_data_json\": \"[]\"}\n\
+          \        \n    merged_papers = {}\n\n    def add_or_update_paper(norm_t,\
+          \ paper_info):\n        if norm_t not in merged_papers:\n            paper_info['venues_set']\
+          \ = {paper_info.get('venue')} if paper_info.get('venue') else set()\n  \
+          \          paper_info['local_in_degree'] = 0 \n            paper_info['ref_norm_titles']\
+          \ = paper_info.get('ref_norm_titles') or []\n            if 'citationCount'\
+          \ not in paper_info: paper_info['citationCount'] = 0\n            merged_papers[norm_t]\
+          \ = paper_info\n        else:\n            existing = merged_papers[norm_t]\n\
+          \            new_id = paper_info.get('paperId', '')\n            old_id\
+          \ = existing.get('paperId', '')\n            if get_id_priority(new_id)\
+          \ > get_id_priority(old_id):\n                existing['paperId'] = new_id\n\
+          \            new_venue = paper_info.get('venue', '').strip()\n         \
+          \   if new_venue:\n                if paper_info.get('source') == 'DBLP':\n\
+          \                    existing['venues_set'].add(f\"DBLP: {new_venue}\")\
+          \ \n                elif 'arxiv' not in new_venue.lower() and 'preprint'\
+          \ not in new_venue.lower():\n                    existing['venues_set'].add(new_venue)\n\
+          \            if existing.get('abstract') in [\"暂缺\", \"\", \"见原文链接\"] and\
+          \ paper_info.get('abstract'):\n                existing['abstract'] = paper_info['abstract']\n\
+          \            if paper_info.get('citationCount', 0) > existing.get('citationCount',\
+          \ 0):\n                existing['citationCount'] = paper_info['citationCount']\n\
+          \            if paper_info.get('ref_norm_titles'):\n                existing['ref_norm_titles']\
+          \ = list(set(existing['ref_norm_titles'] + paper_info['ref_norm_titles']))\n\
+          \n    # 1. 解析各数据库 (代码逻辑保持不变)\n    try:\n        if s2_res and len(s2_res)\
+          \ > 10:\n            s2_data = json.loads(s2_res)\n            for item\
+          \ in s2_data.get('data', []):\n                norm_t = normalize_title(item.get('title',\
+          \ ''))\n                if norm_t:\n                    raw_refs = item.get('references')\
+          \ or []\n                    refs = [normalize_title(r.get('title', ''))\
+          \ for r in raw_refs if isinstance(r, dict) and r.get('title')]\n       \
+          \             add_or_update_paper(norm_t, {\n                        \"\
+          title\": item.get('title', ''), \"paperId\": item.get('paperId', ''), \n\
+          \                        \"year\": str(item.get('year', '未知')), \n     \
+          \                   \"authors\": \", \".join([a.get('name', '') for a in\
+          \ item.get('authors', [])]),\n                        \"url\": item.get('url',\
+          \ ''), \"abstract\": item.get('abstract', '') or \"暂缺\",\n             \
+          \           \"venue\": item.get('venue', '') or \"S2 Result\", \n      \
+          \                  \"source\": \"Semantic Scholar\", \"citationCount\":\
+          \ item.get('citationCount', 0),\n                        \"ref_norm_titles\"\
+          : refs\n                    })\n    except Exception: pass\n\n    # (此处省略\
+          \ OpenAlex/DBLP/arXiv 的解析部分，与你原代码一致，请保留你原有的那部分代码)\n    # ... [保持你原有的 OpenAlex,\
+          \ DBLP, arXiv 解析逻辑] ...\n\n    # =======================================================\n\
+          \    # 图计算逻辑：计算局部入度\n    # =======================================================\n\
+          \    for paper in merged_papers.values():\n        for ref_norm_t in paper.get('ref_norm_titles',\
+          \ []):\n            if ref_norm_t in merged_papers:\n                merged_papers[ref_norm_t]['local_in_degree']\
+          \ += 1\n\n    # =======================================================\n\
+          \    # 封装输出数据\n    # =======================================================\n\
+          \    sorted_papers = sorted(merged_papers.values(), key=lambda x: x.get('citationCount',\
+          \ 0), reverse=True)\n    \n    full_report_list = []      # 给 LLM 用的完整数据\n\
+          \    compact_memory_list = []   # 给变量记忆用的极简数据\n    graph_visual_list = []\
+          \     # 给 JSONBin 用的脱水图谱数据\n\n    for i, p in enumerate(sorted_papers):\n\
+          \        p['venues_list'] = list(p.pop('venues_set', set()))\n        in_degree\
+          \ = p.get('local_in_degree', 0)\n        p['graph_status'] = \"⭐【核心基石论文】\"\
+          \ if in_degree >= 2 else \"\"\n\n        # 1. 完整列表 (前 50 篇，含摘要) -> 用于 LLM\
+          \ 7\n        if i < 50:\n            full_report_list.append(p)\n\n    \
+          \    # 2. 极简记忆列表 (前 15 篇，仅 ID/标题/年份) -> 用于 saved_papers_compact\n      \
+          \  if i < 15:\n            compact_memory_list.append({\n              \
+          \  \"title\": p.get('title', '')[:100], \n                \"paperId\": p.get('paperId',\
+          \ ''),\n                \"year\": str(p.get('year', ''))\n            })\n\
+          \            \n        # 3. 核心图谱列表 (前 30 篇，去摘要，去冗余) -> 用于 graph_data_json\n\
+          \        if i < 30:\n            graph_visual_list.append({\n          \
+          \      \"title\": p.get('title', ''),\n                \"year\": p.get('year',\
+          \ '未知'),\n                \"citationCount\": p.get('citationCount', 0),\n\
+          \                \"venues_list\": p.get('venues_list', []),\n          \
+          \      \"ref_norm_titles\": (p.get('ref_norm_titles') or [])[:15] # 限制引文数量压缩体积\n\
+          \            })\n\n    return {\n        \"merged_papers_json\": json.dumps(full_report_list,\
+          \ ensure_ascii=False),\n        \"saved_papers_compact\": json.dumps(compact_memory_list,\
+          \ ensure_ascii=False),\n        \"graph_data_json\": json.dumps(graph_visual_list,\
+          \ ensure_ascii=False) \n    }"
+        code_language: python3
+        outputs:
+          graph_data_json:
+            children: null
+            type: string
+          merged_papers_json:
+            children: null
+            type: string
+          saved_papers_compact:
+            children: null
+            type: string
+        selected: false
+        title: 去重合并Ver1.4
+        type: code
+        variables:
+        - value_selector:
+          - '17771279199060'
+          - body
+          value_type: string
+          variable: s2_res
+        - value_selector:
+          - '17771279180490'
+          - body
+          value_type: string
+          variable: oa_res
+        - value_selector:
+          - '1777127894696'
+          - body
+          value_type: string
+          variable: arxiv_res
+        - value_selector:
+          - '17771279125900'
+          - body
+          value_type: string
+          variable: dblp_res
+      height: 50
+      id: '1774637471461'
+      position:
+        x: 1008.8602028393916
+        y: -96.19970217016345
+      positionAbsolute:
+        x: 1008.8602028393916
+        y: -96.19970217016345
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 99a3d2f5-caf4-4768-b8b9-651486b35767
+            value: F
+            varType: string
+            variable_selector:
+            - '1774637471461'
+            - merged_papers_json
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 检索全失败处理
+        type: if-else
+      height: 146
+      id: '1774637700350'
+      position:
+        x: 1008.8602028393916
+        y: -21.5841324694357
+      positionAbsolute:
+        x: 1008.8602028393916
+        y: -21.5841324694357
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\nimport math\nimport random  # <--- 引入随机模块\n\
+          \nCCF_DICT = {\n    \"A\": [\n        \"aaai\", \"acl\", \"acm mm\", \"\
+          ai\", \"ase\", \"asplos\", \"atc\", \"bioinformatics\", \"cav\",\n     \
+          \   \"ccs\", \"chi\", \"crypto\", \"cscw\", \"cvpr\", \"dac\", \"eurocrypt\"\
+          , \"eurosys\", \"fast\",\n        \"fm\", \"focs\", \"fse\", \"hpca\", \"\
+          hpdc\", \"iandc\", \"iccv\", \"icde\", \"iclr\", \"icml\",\n        \"icse\"\
+          , \"ijcv\", \"ijhcs\", \"infocom\", \"isca\", \"issta\", \"jacm\", \"jmlr\"\
+          , \"jsac\",\n        \"kdd\", \"lics\", \"micro\", \"mm\", \"mobicom\",\
+          \ \"ndss\", \"neurips\", \"nips\", \"nsdi\",\n        \"oopsla\", \"osdi\"\
+          , \"pldi\", \"popl\", \"ppopp\", \"proc. ieee\", \"rtss\", \"s&p\", \"sc\"\
+          ,\n        \"scis\", \"sicomp\", \"sigcomm\", \"siggraph\", \"sigir\", \"\
+          sigkdd\", \"sigmod\", \"soda\",\n        \"sosp\", \"stoc\", \"taco\", \"\
+          tc\", \"tcad\", \"tdsc\", \"tifs\", \"tip\", \"tit\", \"tkde\",\n      \
+          \  \"tmc\", \"tmm\", \"tochi\", \"tocs\", \"tods\", \"tog\", \"tois\", \"\
+          ton\", \"toplas\", \"tos\",\n        \"tosem\", \"tpami\", \"tpds\", \"\
+          tsc\", \"tse\", \"tvcg\", \"ubicomp\", \"uist\", \"usenix security\",\n\
+          \        \"vis\", \"vldb\", \"vldbj\", \"vr\", \"www\"\n    ],\n    \"B\"\
+          : [\n        \"aamas\", \"acsac\", \"aei\", \"algorithmica\", \"ase\", \"\
+          asiacrypt\", \"bcra\", \"bibm\",\n        \"cad\", \"cagd\", \"caise\",\
+          \ \"cc\", \"ccc\", \"ccf tpci\", \"cgf\", \"cgo\", \"ches\", \"cidr\",\n\
+          \        \"cikm\", \"cluster\", \"cn\", \"cocoon\", \"codes+isss\", \"cogsci\"\
+          , \"coling\", \"colt\",\n        \"concur\", \"conext\", \"cp\", \"cscw\"\
+          , \"csfw\", \"csoc\", \"cviu\", \"cvmj\", \"cybersecurity\",\n        \"\
+          dasfaa\", \"date\", \"dcc\", \"dke\", \"dmkd\", \"dse\", \"dsn\", \"ecai\"\
+          , \"eccv\", \"ecml-pkdd\",\n        \"ecoop\", \"ecscw\", \"edbt\", \"egsr\"\
+          , \"ejis\", \"emnlp\", \"emsoft\", \"esa\", \"ese\", \"esem\",\n       \
+          \ \"esorics\", \"etaps\", \"euro-par\", \"eurographics\", \"eurovis\", \"\
+          fac\", \"fcs\", \"fmcad\",\n        \"fmsd\", \"fpga\", \"fse\", \"group\"\
+          , \"hci\", \"hipeac\", \"hot chips\", \"hotos\", \"hscc\",\n        \"i3d\"\
+          , \"icalp\", \"icassp\", \"iccad\", \"iccd\", \"iccbr\", \"icdcs\", \"icdm\"\
+          , \"icdt\",\n        \"icfp\", \"icme\", \"icmr\", \"icnp\", \"icpc\", \"\
+          icra\", \"ics\", \"icsme\", \"icws\", \"icwsm\",\n        \"iets\", \"ijar\"\
+          , \"ijcai\", \"ijhci\", \"im\", \"imc\", \"informs\", \"interspeech\", \"\
+          ipdps\",\n        \"ipm\", \"ipsn\", \"is\", \"isca\", \"iscas\", \"ismb\"\
+          , \"ismar\", \"iss\", \"issre\", \"ist\",\n        \"iswc\", \"itc\", \"\
+          iui\", \"iwc\", \"iwqos\", \"jair\", \"jamia\", \"jasist\", \"jcs\", \"\
+          jcst\",\n        \"jcss\", \"jfp\", \"jgo\", \"jpdc\", \"jsa\", \"jsc\"\
+          , \"jslhr\", \"jss\", \"jws\", \"kais\", \"kr\",\n        \"lctes\", \"\
+          lisa\", \"miccai\", \"middleware\", \"mobilehci\", \"mobihoc\", \"mobisys\"\
+          , \"models\",\n        \"mscs\", \"msst\", \"naacl\", \"nossdav\", \"pact\"\
+          , \"percom\", \"performance\", \"pg\", \"pkc\",\n        \"podc\", \"pods\"\
+          , \"ppsn\", \"pr\", \"raid\", \"re\", \"recomb\", \"recsys\", \"rtas\",\
+          \ \"saner\",\n        \"sas\", \"sat\", \"sca\", \"scp\", \"sdm\", \"secon\"\
+          , \"sensys\", \"sgp\", \"sigmetrics\", \"siims\",\n        \"socc\", \"\
+          socg\", \"sosym\", \"spaa\", \"spe\", \"specom\", \"spm\", \"srds\", \"\
+          stvr\", \"taas\",\n        \"tac\", \"tacl\", \"talg\", \"tap\", \"tasae\"\
+          , \"taslp\", \"tcbb\", \"tcc\", \"tcom\", \"tcs\", \"tcsvt\",\n        \"\
+          tec\", \"tecs\", \"tfs\", \"tgars\", \"tits\", \"tkdd\", \"tmi\", \"tnnls\"\
+          , \"tocl\", \"todaes\",\n        \"toit\", \"tomm\", \"toms\", \"tops\"\
+          , \"tosn\", \"tr\", \"trets\", \"tsmc\", \"tvlsi\", \"twc\",\n        \"\
+          tweb\", \"uai\", \"umuai\", \"vee\", \"vmcai\", \"wine\", \"wise\", \"wsdm\"\
+          \n        # 注意: 依据2026年大纲，原用户字典中的 ICASSP 和 ICME 从 C 类升至 B 类。\n    ],\n \
+          \   \"C\": [\n        \"3dv\", \"accv\", \"acisp\", \"acml\", \"acm dlt\"\
+          , \"acns\", \"acta\", \"adma\", \"aft\", \"aim\",\n        \"aistats\",\
+          \ \"alt\", \"amia\", \"ancs\", \"apal\", \"apbc\", \"aplas\", \"apnet\"\
+          , \"apnoms\",\n        \"appt\", \"apsec\", \"apweb\", \"asap\", \"asiaccs\"\
+          , \"asp-dac\", \"assets\", \"asru\", \"atva\",\n        \"ats\", \"avi\"\
+          , \"bit\", \"blocksys\", \"bmc bioinformatics\", \"bmvc\", \"c&g\", \"cad/graphics\"\
+          ,\n        \"casa\", \"cases\", \"cavw\", \"cc\", \"ccf-thpc\", \"ccgrid\"\
+          , \"cf\", \"cgi\", \"cgta\", \"cl\",\n        \"clsr\", \"codaspy\", \"\
+          collaboratecom\", \"compsac\", \"conll\", \"coopis\", \"cosit\", \"cscloud\"\
+          ,\n        \"cscwd\", \"csl\", \"ct-rsa\", \"cvm\", \"dai\", \"dam\", \"\
+          dc\", \"dcg\", \"dexa\", \"dfrws\", \"dimva\",\n        \"dis\", \"dpd\"\
+          , \"drm\", \"dsaa\", \"dss\", \"eaai\", \"ease\", \"ecir\", \"er\", \"eswa\"\
+          , \"eswc\",\n        \"ets\", \"euros&p\", \"fc\", \"fccm\", \"fg\", \"\
+          fgcs\", \"fitee\", \"forte\", \"fpl\", \"fpt\", \"fscd\",\n        \"fsttcs\"\
+          , \"fuin\", \"gecco\", \"gi\", \"glsvlsi\", \"gmod\", \"gmp\", \"gpc\",\
+          \ \"hcc\", \"health\",\n        \"hipc\", \"hoti\", \"hotnets\", \"hotsec\"\
+          , \"hotstorage\", \"hpcc\", \"i&m\", \"ica3pp\", \"icann\",\n        \"\
+          icdar\", \"icdf2c\", \"iceccs\", \"icfem\", \"icic\", \"icics\", \"icig\"\
+          , \"icip\", \"icmi\",\n        \"iconip\", \"icpads\", \"icpr\", \"icqrs\"\
+          , \"icsr\", \"icss\", \"icssp\", \"icst\", \"ictac\", \"ictai\",\n     \
+          \   \"icvrv\", \"icwe\", \"icxr\", \"ida\", \"idc\", \"ieee bigdata\", \"\
+          ieee cec\", \"ieee cloud\",\n        \"iet-cvi\", \"iet-ipr\", \"ifip wg\
+          \ 11.9\", \"ih&mmsec\", \"ijcb\", \"ijcia\", \"ijcis\", \"ijcnn\",\n   \
+          \     \"ijdar\", \"ijgis\", \"ijics\", \"ijis\", \"ijisp\", \"ijkm\", \"\
+          ijns\", \"ijprai\", \"ijseke\",\n        \"ijswis\", \"ijtcs-faw\", \"ijufks\"\
+          , \"ilp\", \"image\", \"imcs\", \"inscrypt\", \"integration\",\n       \
+          \ \"interact\", \"internetware\", \"iot\", \"ipco\", \"ipccc\", \"ipl\"\
+          , \"ir\", \"iros\", \"isaac\",\n        \"isbra\", \"isc\", \"iscc\", \"\
+          islped\", \"ispa\", \"ispass\", \"ispd\", \"itc-asia\", \"ivc\",\n     \
+          \   \"jats\", \"jbhi\", \"jbi\", \"jcc\", \"jcis\", \"jcomplexity\", \"\
+          jdm\", \"jetai\", \"jetc\",\n        \"jetta\", \"jgc\", \"jgitm\", \"jiis\"\
+          , \"jisa\", \"jlamp\", \"jnca\", \"jsis\", \"jsl\", \"jvcir\",\n       \
+          \ \"jwe\", \"kbs\", \"ksem\", \"lcn\", \"lmcs\", \"logcom\", \"lopstr\"\
+          , \"mascots\", \"mass\", \"mdm\",\n        \"memocode\", \"mfcs\", \"mmasia\"\
+          , \"mmm\", \"mobiquitous\", \"monet\", \"ms\", \"msn\", \"msr\",\n     \
+          \   \"mswim\", \"mta\", \"nas\", \"nca\", \"ncmmsc\", \"networking\", \"\
+          nlpcc\", \"nle\", \"nocs\",\n        \"npc\", \"npl\", \"nspw\", \"p2p\"\
+          , \"paa\", \"pacific vis\", \"pacm pl\", \"pacmhci\", \"pakdd\",\n     \
+          \   \"pam\", \"paste\", \"pepm\", \"pets\", \"pmc\", \"ppna\", \"prcv\"\
+          , \"pricai\", \"prl\", \"puc\",\n        \"qrs\", \"refsq\", \"rts\", \"\
+          rv\", \"sac\", \"sacmat\", \"sagt\", \"scam\", \"scn\", \"sec\",\n     \
+          \   \"securecomm\", \"seke\", \"setta\", \"sidma\", \"sigspatial\", \"sigpro\"\
+          , \"slt\", \"smc\",\n        \"smi\", \"soca\", \"soups\", \"spin\", \"\
+          spl\", \"sqj\", \"ssdbm\", \"sse\", \"sstd\", \"stacs\",\n        \"sttt\"\
+          , \"systor\", \"tallip\", \"tase\", \"tbd\", \"tcasi\", \"tcps\", \"tcss\"\
+          , \"telo\", \"tg\",\n        \"thri\", \"ti\", \"tiis\", \"tiot\", \"tist\"\
+          , \"tjsc\", \"toce\", \"tors\", \"tplp\", \"tqc\",\n        \"trustcom\"\
+          , \"tsusc\", \"tvc\", \"uic\", \"vi\", \"vrih\", \"vrst\", \"vts\", \"waim\"\
+          , \"wasa\",\n        \"wcmc\", \"wcnc\", \"webdb\", \"wi\", \"wicsa\", \"\
+          wisec\", \"wisa\", \"wowmom\"\n        # 注意: 根据2026年大纲，原用户字典中的 IROS 已从 B\
+          \ 类降至 C 类。\n        # 同时，移除 aclnmt，因其不存在于任何级别的官方推荐列表内。\n    ]\n}\n\n\ndef\
+          \ get_ccf_rank(venues_str):\n    v_lower = venues_str.lower()\n    for rank,\
+          \ keywords in CCF_DICT.items():\n        for kw in keywords:\n         \
+          \   if re.search(rf'\\b{kw}\\b', v_lower):\n                return rank\n\
+          \    return None\n\n\ndef calculate_score(paper, query_keywords, target_author,\
+          \ ccf_req):\n    score = 0\n    title = paper.get('title', '').lower()\n\
+          \    abstract = paper.get('abstract', '').lower()\n    authors = paper.get('authors',\
+          \ '').lower()\n    venues_str = \" \".join(paper.get('venues_list', [])).lower()\n\
+          \    citations = paper.get('citationCount', 0)\n    year = paper.get('year',\
+          \ '0')\n\n    # 1. 文本相关性\n    for kw in query_keywords:\n        if not\
+          \ kw: continue\n        kw_lower = kw.lower()\n        if kw_lower in title:\
+          \ score += 20\n        if kw_lower in abstract: score += min(abstract.count(kw_lower)\
+          \ * 2, 10)\n\n    # 2. 作者精准阻击\n    if target_author and target_author.lower()\
+          \ in authors:\n        score += 100\n\n        # 3. 对数平滑引用量\n    if citations\
+          \ > 0:\n        score += (math.log10(citations + 1) * 8)\n\n    # 4. 动态预印本降权\n\
+          \    if 'arxiv' in venues_str and 'preprint' in venues_str and len(paper.get('venues_list',\
+          \ [])) == 1:\n        y = int(year) if year.isdigit() else 2020\n      \
+          \  if y >= 2025:\n            score -= 2\n        else:\n            score\
+          \ -= 15\n\n        # 5. CCF 评级逻辑\n    paper_ccf = get_ccf_rank(venues_str)\n\
+          \    paper['ccf_label'] = paper_ccf\n\n    if ccf_req:\n        if paper_ccf\
+          \ == ccf_req.upper():\n            score += 50\n        elif paper_ccf is\
+          \ not None:\n            score -= 20\n        else:\n            score -=\
+          \ 10\n    else:\n        if paper_ccf == \"A\":\n            score += 15\n\
+          \        elif paper_ccf == \"B\":\n            score += 8\n\n    # 6. 年份红利\n\
+          \    try:\n        y = int(year)\n        if y >= 2026:\n            score\
+          \ += 5\n        elif y == 2025:\n            score += 3\n    except:\n \
+          \       pass\n\n    # =======================================\n    # 7.\
+          \ 随机微扰 (Random Jitter) - 打破死板的关键！\n    # 引入一个 0.0 到 3.0 之间的随机加分。\n    #\
+          \ =======================================\n    jitter = random.uniform(0.0,\
+          \ 3.0)\n    score += jitter\n\n    return round(score, 1)\n\n\ndef main(merged_papers_json:\
+          \ str, core_query: str, author: str, ccf_req: str, user_limit: int) -> dict:\n\
+          \    if not merged_papers_json:\n        return {\"merged_report\": \"未获取到任何文献数据。\"\
+          , \"paper_count\": 0}\n\n    try:\n        papers = json.loads(merged_papers_json)\n\
+          \    except Exception:\n        return {\"merged_report\": \"文献数据解析失败。\"\
+          , \"paper_count\": 0}\n\n    q_no_quotes = core_query.replace('\"', '').strip()\
+          \ if core_query else \"\"\n    query_keywords = [t.strip() for t in re.split(r'\\\
+          s+(?i:AND|OR)\\s+', q_no_quotes) if t.strip()]\n\n    # 算分与排序\n    for p\
+          \ in papers:\n        p['score'] = calculate_score(p, query_keywords, author,\
+          \ ccf_req)\n\n    papers.sort(key=lambda x: x['score'], reverse=True)\n\n\
+          \    # ==========================================\n    # 动态截取 Top-Limit\
+          \ 篇论文 (真正的严出)\n    # ==========================================\n    # 如果用户没提要求，大模型通常默认提取出\
+          \ limit=5，安全兜底。\n    limit_num = int(user_limit) if user_limit else 5\n\n\
+          \    report_lines = []\n    # 只输出用户要求数量的论文给大模型\n    for i, p in enumerate(papers[:limit_num]):\n\
+          \        valid_venues = [v for v in p.get('venues_list', []) if 'arxiv'\
+          \ not in v.lower() and 'preprint' not in v.lower()]\n        display_venue\
+          \ = \" / \".join(valid_venues) if valid_venues else \"arXiv Preprint\"\n\
+          \n        ccf_tag = f\"【CCF-{p['ccf_label']}】\" if p.get('ccf_label') else\
+          \ \"\"\n        g_status = p.get('graph_status', '')\n        report_lines.append(f\"\
+          ### 论文 {i + 1}：{p['title']} ({p['year']})\")\n        report_lines.append(f\"\
+          - **综合得分**: {p['score']}分 (包含微小随机扰动)\")\n        if g_status and \"⭐\" in\
+          \ g_status:\n            report_lines.append(f\"- **图谱分析**: **{g_status}**\"\
+          )\n        report_lines.append(f\"- **被引次数**: {p['citationCount']} 次\")\n\
+          \        report_lines.append(f\"- **发表载体**: **{display_venue}** {ccf_tag}\"\
+          )\n        report_lines.append(f\"- **信息来源**: {p.get('source', '未知')} 等\"\
+          )\n        report_lines.append(f\"- **作者**: {p.get('authors', '未知')}\")\n\
+          \        report_lines.append(f\"- **链接**: {p.get('url', '未知')}\")\n    \
+          \    report_lines.append(f\"\")\n        abstract = p.get('abstract', '暂缺')\n\
+          \        report_lines.append(f\"- **摘要**: {abstract[:300]}...\\n\")\n\n\
+          \    final_output = \"\\n\".join(report_lines) if report_lines else \"未检索到高度相关的论文。\"\
+          \n\n    return {\n        \"merged_report\": final_output,\n        \"paper_count\"\
+          : len(papers),  # 实际抓到的庞大总数（可以用来观察漏斗有多深）\n        \"shown_count\": limit_num\
+          \  # 实际展示的数量\n    }"
+        code_language: python3
+        outputs:
+          merged_report:
+            children: null
+            type: string
+          paper_count:
+            children: null
+            type: number
+          shown_count:
+            children: null
+            type: number
+        selected: false
+        title: RANK/筛选Ver1.4
+        type: code
+        variables:
+        - value_selector:
+          - '1774637471461'
+          - merged_papers_json
+          value_type: string
+          variable: merged_papers_json
+        - value_selector:
+          - '1774636683134'
+          - core_query
+          value_type: string
+          variable: core_query
+        - value_selector:
+          - '1774636683134'
+          - author
+          value_type: string
+          variable: author
+        - value_selector:
+          - '1774636683134'
+          - ccf_ranking
+          value_type: string
+          variable: ccf_req
+        - value_selector:
+          - '1774636683134'
+          - limit
+          value_type: number
+          variable: user_limit
+      height: 50
+      id: '1774637767950'
+      position:
+        x: 1008.8602028393916
+        y: 147.4366392912992
+      positionAbsolute:
+        x: 1008.8602028393916
+        y: 147.4366392912992
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1774637471461'
+          - saved_papers_compact
+          variable_selector:
+          - conversation
+          - saved_papers
+          write_mode: over-write
+        selected: false
+        title: 全局变量更新
+        type: assigner
+        version: '2'
+      height: 82
+      id: '1774637944613'
+      position:
+        x: 1313.2291204320238
+        y: 122.80336750702321
+      positionAbsolute:
+        x: 1313.2291204320238
+        y: 122.80336750702321
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1774637471461'
+          - merged_papers_json
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: ab14f95f-3eb5-479a-b286-04120d87522b
+          role: system
+          text: "你是一个专业的学术科研助理。请仔细阅读以下从学术数据库检索到的论文 JSON 数据：\n\n<data>\n{{#1774637767950.merged_report#}}\n\
+            </data>\n\n并结合用户的原始提问：{{#sys.query#}}，向用户输出一份专业的中文论文推荐报告。\n\n【输出排版要求】\n\
+            请严格按照以下格式输出每一篇论文：\n[论文标题](发表时间/年份)\n- 作者：[提取核心作者，多位作者用逗号隔开]\n- 链接：[url]\n\
+            - 期刊/会议：[提取发表的期刊名称、会议名称或预印本平台如arXiv。如果未提供，请填“未知”]\n- 发表时间：[发表年份]\n- 图谱网络：[⚠️重要：如果输入数据中包含带有\
+            \ ⭐ 符号的“图谱分析”内容，请务必在此单独一行原样输出！如果原始数据里没有这一项，则完全省略此行]\n-  核心摘要：[用简洁专业的中文，总结研究背景、核心方法和主要结论。如摘要为空，请明确注明“暂缺”]\n\
+            - 推荐理由：[结合用户的提问，用一两句话精炼说明为什么推荐这篇论文。]\n\n【 内部记忆指令（隐形水印）】\n为了让后续流程能追踪论文，你必须将真实的\
+            \ `paperId` 嵌入在每一篇论文的末尾。\n但为了不影响用户阅读，请务必使用 Markdown/HTML 的隐藏注释语法。\n如果原始数据表明它发表于顶级会议（如\
+            \ NeurIPS, ACL, ICLR, CVPR 等）或期刊（如 Nature, IEEE 等），必须准确写出该会议/期刊的全称和缩写。\n\
+            只有当数据明确表明该论文仅为预印本且未被任何正式会议/期刊接收时，才允许填写“arXiv预印本”。如果真的找不到，请填写“未知”。\n\n\
+            【输出语气调整】 请观察用户的原始意图： - 如果用户是单纯检索，请称呼输出为“检索报告”。 - 如果用户是在寻求“推荐”或“查引”，请在报告开头强调：“基于您提供的参考目标，我为您从多个核心数据库中交叉匹配并筛选出了以下高分相关文献（已按\
+            \ CCF 评级与相关度排序）：”\n\n【意图区分】如果用户是在寻求“推荐”或“查引”，在生成推荐列表前，请务必核对每一篇论文的标题。绝对不允许将用户提问中作为“参考目标”的原论文本身，再次作为推荐结果输出！如果传入的数据中排在第一位的是原论文自身，请直接跳过它，输出后面排名的其他相似文献。\n\
+            \n“如果某篇论文带有 ⭐【核心基石论文】 的 graph_status 标签，说明它是该检索领域的关键枢纽，请给予极高的筛选优先级，并在\
+            \ llm_reason 中明确指出它在网络中的基石地位。\n【专属动态图谱指令】 请务必在整份报告的**最末尾**，使用分割线隔离，并用以下精准的\
+            \ Markdown 格式原样输出图谱入口提示（切勿修改其中的变量格式）： **专属多维文献全景图谱已生成** [**点击下方链接，沉浸式探索文献生态网络**]\n\
+            https://tmh01.github.io/tupu/index.html?id={{#1777118612441.graph_id#}}\
+            \ \n\U0001F4A1 *注：图中节点体积映射了该文献在当前网络中的核心枢纽度，连线揭示了文献间的知识继承与交叉耦合关系。*"
+        selected: false
+        title: LLM 7
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '1774638006985'
+      position:
+        x: 1942.9350949552284
+        y: 122.80336750702321
+      positionAbsolute:
+        x: 1942.9350949552284
+        y: 122.80336750702321
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        answer: '{{#1774638006985.text#}}'
+        selected: false
+        title: 直接回复 6
+        type: answer
+        variables: []
+      height: 101
+      id: '1774638017717'
+      position:
+        x: 2275.6001818285854
+        y: 122.80336750702321
+      positionAbsolute:
+        x: 2275.6001818285854
+        y: 122.80336750702321
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import urllib.parse\n\ndef main(pure_value: str, limit: int) -> dict:\n\
+          \    val = pure_value.strip()\n    final_id = val\n    # 智能识别 MAG 和 ARXIV\
+          \ 前缀\n    if val.startswith(\"W\") and val[1:].isdigit(): final_id = f\"\
+          MAG:{val[1:]}\"\n    elif \".\" in val and len(val) < 15: final_id = f\"\
+          ARXIV:{val}\"\n\n    limit = limit or 5\n    fields = \"title,abstract,url,year,authors,venue,journal,citationCount,influentialCitationCount\"\
+          \n    url = f\"https://api.semanticscholar.org/graph/v1/paper/{final_id}/citations?limit={limit}&fields={fields}\"\
+          \n    \n    return {\"api_url\": url}"
+        code_language: python3
+        outputs:
+          api_url:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 8
+        type: code
+        variables:
+        - value_selector:
+          - '1774606556906'
+          - pure_value
+          value_type: string
+          variable: pure_value
+        - value_selector:
+          - '1774606556906'
+          - limit
+          value_type: number
+          variable: limit
+      height: 50
+      id: '1774642324391'
+      position:
+        x: 150.01307797223205
+        y: 321.1131059966833
+      positionAbsolute:
+        x: 150.01307797223205
+        y: 321.1131059966833
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import urllib.parse\n\ndef main(pure_value: str, limit: int) -> dict:\n\
+          \    val = pure_value.strip()\n    final_id = val\n    if val.startswith(\"\
+          W\") and val[1:].isdigit(): final_id = f\"MAG:{val[1:]}\"\n    elif \".\"\
+          \ in val and len(val) < 15: final_id = f\"ARXIV:{val}\"\n\n    limit_num\
+          \ = limit or 20 # 参考文献通常需要多拿一点\n    fields = \"title,abstract,url,year,authors\"\
+          \n    url = f\"https://api.semanticscholar.org/graph/v1/paper/{final_id}/references?limit={limit_num}&fields={fields}\"\
+          \n    \n    return {\"api_url\": url}"
+        code_language: python3
+        outputs:
+          api_url:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 10
+        type: code
+        variables:
+        - value_selector:
+          - '1774606556906'
+          - pure_value
+          value_type: string
+          variable: pure_value
+        - value_selector:
+          - '1774606556906'
+          - limit
+          value_type: number
+          variable: limit
+      height: 50
+      id: '17746427235430'
+      position:
+        x: 142.1407900811999
+        y: 744.9845060785143
+      positionAbsolute:
+        x: 142.1407900811999
+        y: 744.9845060785143
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(pure_value: str) -> dict:\n    val = pure_value.strip()\n\
+          \    \n    # 1. 如果传进来的是真实的网址\n    if val.startswith(\"http\"):\n       \
+          \ api_path = f\"URL:{val}\"\n    else:\n        # 2. 如果传进来的是 ID，自动匹配正确的\
+          \ API 前缀\n        if val.startswith(\"W\") and val[1:].isdigit():\n    \
+          \        api_path = f\"MAG:{val[1:]}\"\n        elif \".\" in val and len(val)\
+          \ < 15:\n            api_path = f\"ARXIV:{val}\"\n        else:\n      \
+          \      api_path = val  # 纯正的 Semantic Scholar ID\n            \n    return\
+          \ {\n        \"api_path\": api_path\n    }"
+        code_language: python3
+        outputs:
+          api_path:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 11
+        type: code
+        variables:
+        - value_selector:
+          - '1774606556906'
+          - pure_value
+          value_type: string
+          variable: pure_value
+      height: 50
+      id: '17746428798690'
+      position:
+        x: 108.47293844745286
+        y: 575.8740147759722
+      positionAbsolute:
+        x: 108.47293844745286
+        y: 575.8740147759722
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: 722bb174-523c-4a3f-b442-b97032aab45b
+            value: '1'
+            varType: number
+            variable_selector:
+            - '1774636716294'
+            - LLM_Rank
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 是否用LLM来筛选
+        type: if-else
+      height: 122
+      id: '1774646085966'
+      position:
+        x: 730.4900838663661
+        y: -256.86310214249
+      positionAbsolute:
+        x: 730.4900838663661
+        y: -256.86310214249
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\nimport xml.etree.ElementTree as ET\n\ndef normalize_title(title):\n\
+          \    if not title: return \"\"\n    return re.sub(r'[^a-z0-9]', '', title.lower())\n\
+          \ndef main(s2_res: str, oa_res: str, arxiv_res: str, dblp_res: str, Rank_1_limit:\
+          \ int) -> dict:\n    if s2_res==oa_res==arxiv_res==\" \":\n        return\
+          \ {\"merged_papers_json\": \"F\"}\n    merged_papers = {}\n\n    def add_or_update_paper(norm_t,\
+          \ paper_info):\n        if norm_t not in merged_papers:\n            venues_set\
+          \ = set()\n            if paper_info.get('venue'):\n                venues_set.add(paper_info['venue'])\n\
+          \            paper_info['venues_set'] = venues_set\n            if 'citationCount'\
+          \ not in paper_info: paper_info['citationCount'] = 0\n            merged_papers[norm_t]\
+          \ = paper_info\n        else:\n            existing_paper = merged_papers[norm_t]\n\
+          \            new_venue = paper_info.get('venue', '').strip()\n         \
+          \   \n            # 【DBLP 权威盖章逻辑】\n            # 如果来源是 DBLP，或者新 venue 不是预印本，强制加入集合\n\
+          \            if new_venue:\n                if paper_info.get('source')\
+          \ == 'DBLP':\n                    existing_paper['venues_set'].add(f\"DBLP:\
+          \ {new_venue}\") # 加个前缀，增加大模型识别度\n                elif 'arxiv' not in new_venue.lower()\
+          \ and 'preprint' not in new_venue.lower():\n                    existing_paper['venues_set'].add(new_venue)\n\
+          \            \n            if existing_paper['abstract'] in [\"暂缺\", \"\
+          见原文链接\", \"\"] and paper_info.get('abstract'):\n                existing_paper['abstract']\
+          \ = paper_info['abstract']\n                \n            new_citations\
+          \ = paper_info.get('citationCount', 0)\n            if new_citations > existing_paper.get('citationCount',\
+          \ 0):\n                existing_paper['citationCount'] = new_citations\n\
+          \n    # ---------------------------------------------------------\n    #\
+          \ 0. 解析 DBLP (最权威的 CS 期刊身份，最先解析打底)\n    # ---------------------------------------------------------\n\
+          \    try:\n        if dblp_res:\n            dblp_data = json.loads(dblp_res)\n\
+          \            hits = dblp_data.get('result', {}).get('hits', {}).get('hit',\
+          \ [])\n            for item in hits:\n                info = item.get('info',\
+          \ {})\n                title = info.get('title', '')\n                norm_t\
+          \ = normalize_title(title)\n                if norm_t:\n               \
+          \     # DBLP 作者可能是列表或单个字典\n                    raw_authors = info.get('authors',\
+          \ {}).get('author', [])\n                    if isinstance(raw_authors,\
+          \ dict): raw_authors = [raw_authors]\n                    authors = \",\
+          \ \".join([a.get('text', '') for a in raw_authors if isinstance(a, dict)])\n\
+          \                    \n                    venue = info.get('venue', '')\n\
+          \                    # DBLP 偶尔也收录 CoRR (即 arXiv)，我们过滤掉它\n              \
+          \      if venue and 'CoRR' not in venue:\n                        add_or_update_paper(norm_t,\
+          \ {\n                            \"title\": title, \"year\": info.get('year',\
+          \ '未知'), \"authors\": authors,\n                            \"url\": info.get('ee',\
+          \ ''), \"abstract\": \"暂缺\",\n                            \"venue\": venue,\
+          \ \"source\": \"DBLP\", \"citationCount\": 0\n                        })\n\
+          \    except Exception as e: print(\"DBLP Err:\", e)\n\n\n    # ---------------------------------------------------------\n\
+          \    # 1. 解析 Semantic Scholar (提供 citationCount)\n    # ---------------------------------------------------------\n\
+          \    try:\n        if s2_res:\n            s2_data = json.loads(s2_res)\n\
+          \            for item in s2_data.get('data', []):\n                title\
+          \ = item.get('title', '')\n                norm_t = normalize_title(title)\n\
+          \                if norm_t:\n                    authors = \", \".join([a.get('name',\
+          \ '') for a in item.get('authors', [])])\n                    venue = item.get('venue',\
+          \ '') or \"未知来源\"\n                    citations = item.get('citationCount',\
+          \ 0)\n                    \n                    add_or_update_paper(norm_t,\
+          \ {\n                        \"title\": title, \"year\": str(item.get('year',\
+          \ '未知')), \"authors\": authors,\n                        \"url\": item.get('url',\
+          \ ''), \"abstract\": item.get('abstract', '') or \"暂缺\",\n             \
+          \           \"venue\": venue, \"source\": \"Semantic Scholar\", \"citationCount\"\
+          : citations\n                    })\n    except Exception: pass\n\n    #\
+          \ ---------------------------------------------------------\n    # 2. 解析\
+          \ OpenAlex (提供 cited_by_count)\n    # ---------------------------------------------------------\n\
+          \    try:\n        if oa_res:\n            oa_data = json.loads(oa_res)\n\
+          \            for item in oa_data.get('results', []):\n                title\
+          \ = item.get('title', '')\n                norm_t = normalize_title(title)\n\
+          \                if norm_t:\n                    authors = \", \".join([a.get('author',\
+          \ {}).get('display_name', '') for a in item.get('authorships', [])])\n \
+          \                   primary_loc = item.get('primary_location') or {}\n \
+          \                   source = primary_loc.get('source') or {}\n         \
+          \           venue = source.get('display_name') or \"未知来源\"\n           \
+          \         citations = item.get('cited_by_count', 0)\n                  \
+          \  \n                    add_or_update_paper(norm_t, {\n               \
+          \         \"title\": title, \"year\": str(item.get('publication_year', '未知')),\
+          \ \"authors\": authors,\n                        \"url\": item.get('id',\
+          \ ''), \"abstract\": \"见原文链接\",\n                        \"venue\": venue,\
+          \ \"source\": \"OpenAlex\", \"citationCount\": citations\n             \
+          \       })\n    except Exception: pass\n\n    # ---------------------------------------------------------\n\
+          \    # 3. 解析 arXiv (底层仓库，无引用量)\n    # ---------------------------------------------------------\n\
+          \    try:\n        if arxiv_res and \"http://www.w3.org/2005/Atom\" in arxiv_res:\n\
+          \            root = ET.fromstring(arxiv_res)\n            ns = {'atom':\
+          \ 'http://www.w3.org/2005/Atom', 'arxiv': 'http://arxiv.org/schemas/atom'}\n\
+          \            for entry in root.findall('atom:entry', ns):\n            \
+          \    title = entry.find('atom:title', ns).text\n                title =\
+          \ title.replace('\\n', ' ').strip() if title else ''\n                norm_t\
+          \ = normalize_title(title)\n                if norm_t:\n               \
+          \     authors = \", \".join([a.find('atom:name', ns).text for a in entry.findall('atom:author',\
+          \ ns)])\n                    url = entry.find('atom:id', ns).text\n    \
+          \                year = entry.find('atom:published', ns).text[:4] if entry.find('atom:published',\
+          \ ns) is not None else '未知'\n                    summary = entry.find('atom:summary',\
+          \ ns)\n                    comment_node = entry.find('arxiv:comment', ns)\n\
+          \                    comment = comment_node.text.lower() if comment_node\
+          \ is not None else \"\"\n\n                    journal_ref = entry.find('arxiv:journal_ref',\
+          \ ns)\n                    venue = journal_ref.text if journal_ref is not\
+          \ None else \"arXiv Preprint\"\n                    venue = \"arXiv Preprint\"\
+          \n                    # 如果作者在备注里写了 accepted 或者 to appear，我们直接把备注当成期刊名！\n\
+          \                    if 'accept' in comment or 'appear' in comment:\n  \
+          \                      venue = f\"Accepted/Appearing in: {comment_node.text}\"\
+          \n\n                    add_or_update_paper(norm_t, {\n                \
+          \        \"title\": title, \"year\": year, \"authors\": authors,\n     \
+          \                   \"url\": url, \"abstract\": summary.text.replace('\\\
+          n', ' ').strip() if summary is not None else '',\n                     \
+          \   \"venue\": venue, \"source\": \"arXiv\", \"citationCount\": 0\n    \
+          \                })\n    except Exception: pass\n\n    # 简单过滤空数据，并压缩体积（截断过长摘要以节省\
+          \ Token）\n    candidate_pool = []\n    # 最多保留前Rank_1_limit篇喂给大模\n    for\
+          \ p in list(merged_papers.values())[:Rank_1_limit]: \n        venues_list\
+          \ = list(p.pop('venues_set', set()))\n        display_venue = \" / \".join(venues_list)\
+          \ if venues_list else \"arXiv Preprint\"\n        \n        abstract = p.get('abstract',\
+          \ '')\n        # 截断摘要到 800 字符，足够大模型判断语义相关性了\n        short_abstract = abstract[:800]\
+          \ + \"...\" if len(abstract) > 800 else abstract\n\n        candidate_pool.append({\n\
+          \            \"title\": p.get('title', ''),\n            \"authors\": p.get('authors',\
+          \ ''),\n            \"year\": p.get('year', '未知'),\n            \"venue\"\
+          : display_venue,\n            \"citations\": p.get('citationCount', 0),\n\
+          \            \"abstract\": short_abstract,\n            \"url\": p.get('url',\
+          \ '')\n        })\n\n    # 将这Rank_1_limit篇论文转化为一个纯文本的 JSON 字符串\n    return\
+          \ {\n        \"all_papers_json_str\": json.dumps(candidate_pool, ensure_ascii=False)\n\
+          \    }"
+        code_language: python3
+        outputs:
+          all_papers_json_str:
+            children: null
+            type: string
+        selected: false
+        title: 去重合并截断
+        type: code
+        variables:
+        - value_selector:
+          - '17771279199060'
+          - body
+          value_type: string
+          variable: s2_res
+        - value_selector:
+          - '17771279180490'
+          - body
+          value_type: string
+          variable: oa_res
+        - value_selector:
+          - '1777127894696'
+          - body
+          value_type: string
+          variable: arxiv_res
+        - value_selector:
+          - '17771279125900'
+          - body
+          value_type: string
+          variable: dblp_res
+        - value_selector:
+          - '1774636716294'
+          - Rank_1_limit
+          value_type: number
+          variable: Rank_1_limit
+      height: 50
+      id: '1774646447501'
+      position:
+        x: 1002.6685369641214
+        y: -366.07169853982475
+      positionAbsolute:
+        x: 1002.6685369641214
+        y: -366.07169853982475
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 99a3d2f5-caf4-4768-b8b9-651486b35767
+            value: F
+            varType: string
+            variable_selector:
+            - '1774646447501'
+            - all_papers_json_str
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 检索全失败处理 (1)
+        type: if-else
+      height: 146
+      id: '17746465982170'
+      position:
+        x: 1008.8602028393916
+        y: -556.2099701514271
+      positionAbsolute:
+        x: 1008.8602028393916
+        y: -556.2099701514271
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1774646447501'
+          - all_papers_json_str
+        model:
+          completion_params: {}
+          mode: chat
+          name: deepseek-reasoner
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: bf59085b-c89f-4612-87d2-59d496b3cca6
+          role: system
+          text: '你是一个极其严苛且专业的学术审稿委员会主席。
+
+            下面是一份包含了多篇候选论文的 JSON 数据池：
+
+            <papers>
+
+            {{#1774646447501.all_papers_json_str#}}
+
+            </papers>
+
+
+            用户的核心检索需求如下：
+
+            - 研究方向/关键词：{{#1774636683134.core_query#}}
+
+            - 指定作者：{{#1774636683134.author#}}（若为空则忽略）
+
+            - CCF级别期望：{{#1774636683134.ccf_ranking#}}（若为空则忽略，若有要求请优先挑选顶会/顶刊）
+
+            - 需要你挑选出的最终篇数：{{#1774636683134.limit#}} 篇
+
+
+            【你的任务】
+
+            请通读所有候选论文，综合评估它们与用户需求的“语义相关性”、“引用量 (citations)”和“年份新鲜度”。
+
+            从中严格挑选出最符合要求的 {{#1774636683134.limit#}}篇论文。
+
+
+            【输出格式要求】
+
+            1. 你的输出必须是一个合法的 JSON 数组 (Array)。
+
+            2. 数组中的每个对象，必须原封不动地保留原论文的 title, authors, year, venue, citations, abstract,
+            url 字段。
+
+            3. 请为每个选中的对象增加一个字段 "llm_reason"（类型为字符串），用一句话（精炼专业）说明你为什么认为这篇论文高度契合用户需求。
+
+            4. 绝对不要输出任何其他解释性文字，不要包含 Markdown 的 ```json 标记，只输出纯净的 JSON 文本！'
+        reasoning_format: separated
+        selected: false
+        title: 筛选器
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '1774646648150'
+      position:
+        x: 1296.6923283846909
+        y: -512.0012026035675
+      positionAbsolute:
+        x: 1296.6923283846909
+        y: -512.0012026035675
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1774646648150'
+          - text
+          variable_selector:
+          - conversation
+          - saved_papers
+          write_mode: over-write
+        selected: false
+        title: 全局变量更新 (1)
+        type: assigner
+        version: '2'
+      height: 82
+      id: '17746467836950'
+      position:
+        x: 1296.6923283846909
+        y: -391.2314829760401
+      positionAbsolute:
+        x: 1296.6923283846909
+        y: -391.2314829760401
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        answer: '{{#17746468755040.text#}}'
+        selected: false
+        title: 直接回复 6 (1)
+        type: answer
+        variables: []
+      height: 101
+      id: '17746468298060'
+      position:
+        x: 1566.7399896286422
+        y: -420.46933327391844
+      positionAbsolute:
+        x: 1566.7399896286422
+        y: -420.46933327391844
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1774646648150'
+          - text
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: ab14f95f-3eb5-479a-b286-04120d87522b
+          role: system
+          text: '你是一个专业的学术科研助理。请仔细阅读以下从学术数据库检索到的论文 JSON 数据：
+
+
+            <data>
+
+            {{#1774646648150.text#}}
+
+            </data>
+
+
+            并结合用户的原始提问：{{#sys.query#}}，向用户输出一份专业的中文论文推荐报告。
+
+
+            【输出排版要求】
+
+            请严格按照以下格式输出每一篇论文：
+
+            [论文标题](发表时间/年份)
+
+            - 作者：[提取核心作者，多位作者用逗号隔开]
+
+            - 链接：[url]
+
+            - 期刊/会议：[提取发表的期刊名称、会议名称或预印本平台如arXiv。如果未提供，请填“未知”]
+
+            - 发表时间：[发表年份]
+
+            -  核心摘要：[用简洁专业的中文，总结研究背景、核心方法和主要结论。如摘要为空，请明确注明“暂缺”]
+
+            - 推荐理由：[结合用户的提问，用一两句话精炼说明为什么推荐这篇论文。]
+
+
+            【 内部记忆指令（隐形水印）】
+
+            为了让后续流程能追踪论文，你必须将真实的 `paperId` 嵌入在每一篇论文的末尾。
+
+            但为了不影响用户阅读，请务必使用 Markdown/HTML 的隐藏注释语法。
+
+            如果原始数据表明它发表于顶级会议（如 NeurIPS, ACL, ICLR, CVPR 等）或期刊（如 Nature, IEEE 等），必须准确写出该会议/期刊的全称和缩写。
+
+            只有当数据明确表明该论文仅为预印本且未被任何正式会议/期刊接收时，才允许填写“arXiv预印本”。如果真的找不到，请填写“未知”。
+
+            '
+        selected: false
+        title: LLM 7 (1)
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '17746468755040'
+      position:
+        x: 1566.7399896286422
+        y: -535.6477526873065
+      positionAbsolute:
+        x: 1566.7399896286422
+        y: -535.6477526873065
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        answer: '老大，我太菜了，找不到啊
+
+          '
+        selected: false
+        title: 直接回复 6 (1)
+        type: answer
+        variables: []
+      height: 98
+      id: '17746469133620'
+      position:
+        x: 1313.2291204320238
+        y: -234.3080739508352
+      positionAbsolute:
+        x: 1313.2291204320238
+        y: -234.3080739508352
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\nfrom collections import Counter\n\ndef main(raw_citations:\
+          \ str) -> dict:\n    # 终极兜底：确保即便出错，下游节点也能拿到合法的变量名\n    fallback = {\n  \
+          \      \"merged_papers_json\": \"[]\",\n        \"trend_summary\": \"抱歉，由于引文数据库尚未收录该论文或\
+          \ ID 匹配失败，无法生成演进趋势报告。\",\n        \"corpus_sample\": \"暂无引文样本数据。\"\n   \
+          \ }\n    \n    try:\n        # 1. 强力防御：拦截所有非 JSON 的错误信息（如 404 字符串）\n   \
+          \     if not raw_citations or not isinstance(raw_citations, str):\n    \
+          \        return fallback\n        \n        clean_input = raw_citations.strip()\n\
+          \        if \"error\" in clean_input.lower() or \"404\" in clean_input or\
+          \ clean_input.startswith(\"Failed\"):\n            return fallback\n   \
+          \         \n        data = json.loads(clean_input)\n        papers_list\
+          \ = data.get(\"data\", [])\n        if not papers_list:\n            return\
+          \ fallback\n            \n        formatted_papers = []\n        years_list\
+          \ = []\n        authors_list = []\n        full_text_for_keywords = \"\"\
+          \ \n        structured_samples = []\n\n        for item in papers_list:\n\
+          \            # Semantic Scholar 的引文结构是 citingPaper\n            paper =\
+          \ item.get(\"citingPaper\", {})\n            if not paper: continue\n  \
+          \          \n            title = paper.get(\"title\", \"\")\n          \
+          \  if not title: continue\n            \n            # A. 时间线统计\n      \
+          \      year = paper.get(\"year\")\n            if year: years_list.append(int(year))\n\
+          \                \n            # B. 活跃学者统计\n            names = [a.get(\"\
+          name\", \"\") for a in paper.get(\"authors\", []) if isinstance(a, dict)\
+          \ and a.get(\"name\")]\n            authors_list.extend(names)\n       \
+          \     \n            # C. 为 LLM 12 生成结构化采样片段\n            abstract_snippet\
+          \ = paper.get('abstract', '') or \"摘要暂缺\"\n            sample_text = f\"\
+          【年份：{year or '未知'}】 标题：{title} | 摘要摘要：{abstract_snippet[:200]}...\"\n  \
+          \          structured_samples.append(sample_text)\n            \n      \
+          \      # D. 聚合语料用于关键词提取\n            full_text_for_keywords += f\" {title}\
+          \ {abstract_snippet}\"\n            \n            formatted_papers.append({\n\
+          \                \"title\": title,\n                \"year\": str(year or\
+          \ \"未知\"),\n                \"authors\": \", \".join(names),\n         \
+          \       \"url\": paper.get(\"url\", \"\"),\n                \"venue\": paper.get(\"\
+          venue\", \"未知\"),\n                \"citationCount\": paper.get(\"citationCount\"\
+          , 0)\n            })\n\n        # ---------------------------------------------------------\n\
+          \        # 2. 深度特征提取逻辑\n        # ---------------------------------------------------------\n\
+          \        # A. 计算年份分布（用于演进热度分析）\n        year_counts = dict(Counter(years_list))\n\
+          \        sorted_year_str = \", \".join([f\"{y}年({c}篇)\" for y, c in sorted(year_counts.items())])\n\
+          \        \n        # B. 关键词降噪提取（过滤掉学术公文常用词）\n        words = re.findall(r'\\\
+          b[A-Za-z]{4,}\\b', full_text_for_keywords.lower())\n        academic_stopwords\
+          \ = {\n            \"this\", \"that\", \"with\", \"from\", \"these\", \"\
+          model\", \"method\", \"paper\", \n            \"approach\", \"based\", \"\
+          using\", \"proposed\", \"performance\", \"results\",\n            \"study\"\
+          , \"analysis\", \"system\", \"research\", \"data\", \"application\"\n  \
+          \      }\n        # 如果用户搜的是 Mamba 相关的，建议这里也动态过滤搜索词，但这版先做通用优化\n        top_words\
+          \ = [w for w, c in Counter([w for w in words if w not in academic_stopwords]).most_common(15)]\n\
+          \        \n        # C. 统计高频学者（保留前 8 名）\n        top_scholars = [a for a,\
+          \ c in Counter(authors_list).most_common(8)]\n        \n        # 3. 组装给\
+          \ LLM 12 的宏观摘要\n        trend_summary = (\n            f\"【文献演进特征摘要】\\n\"\
+          \n            f\"- 累计被引样本数：{len(formatted_papers)} 篇\\n\"\n            f\"\
+          - 年份分布趋势：{sorted_year_str}\\n\"\n            f\"- 核心流派关键词：{', '.join(top_words)}\\\
+          n\"\n            f\"- 活跃跟进团队/学者：{', '.join(top_scholars)}\"\n        )\n\
+          \n        # 4. 最终返回：截断输出以保护 Token 和变量限制\n        return {\n            \"\
+          merged_papers_json\": json.dumps(formatted_papers[:15], ensure_ascii=False),\n\
+          \            \"trend_summary\": trend_summary,\n            \"corpus_sample\"\
+          : \"\\n\\n\".join(structured_samples[:10]) # 采样前 10 篇最具代表性的\n        }\n\
+          \        \n    except Exception:\n        # 发生任何未预料的解析异常时，绝不抛红，走 fallback\n\
+          \        return fallback"
+        code_language: python3
+        outputs:
+          corpus_sample:
+            children: null
+            type: string
+          merged_papers_json:
+            children: null
+            type: string
+          trend_summary:
+            children: null
+            type: string
+        selected: false
+        title: 'Python: 引文数据适配器'
+        type: code
+        variables:
+        - value_selector:
+          - '1777128352868'
+          - body
+          value_type: string
+          variable: raw_citations
+      height: 50
+      id: '1776648874566'
+      position:
+        x: 661.888103879981
+        y: 321.1131059966833
+      positionAbsolute:
+        x: 661.888103879981
+        y: 321.1131059966833
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: false
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: ab14f95f-3eb5-479a-b286-04120d87522b
+          role: system
+          text: '你是一位顶级的文献计量学专家与 IEEE/ACM 顶刊的综述审稿人。用户正在查询某篇基石论文的后续研究演进（被引）情况。
+
+
+            以下是通过代码提取的该论文引文网络的宏观特征摘要：
+
+            {{#1776648874566.trend_summary#}}
+
+
+            以下是部分引文的标题与摘要片段（供你参考具体语境）：
+
+            {{#1776648874566.corpus_sample#}}
+
+
+            【核心任务】
+
+            请告别干瘪的列表堆砌，以“综述论文”的标准，为用户生成一份结构化、极具学术深度的《核心文献引文与学术演进报告》。
+
+
+            【输出模块与排版要求】（请严格遵循以下标题与逻辑）
+
+
+            一、 引文网络宏观态势 (Macro-Impact)
+
+            根据时间跨度和累积样本，用高度专业的学术语言总结该论文的整体影响力。客观评判其处于哪个发展阶段（如：理论萌芽期、爆发式扩展期、应用落地期或技术平台期）。
+
+
+            二、 学术演进路径追踪 (Research Trajectory)
+
+            这是最核心的部分！请基于提取到的“核心流派词”和语境样本，将后续研究**高度聚类为 2-3 个核心演进方向**（必须给出精准的中英文学术命名，例如：理论整合与范式确立
+            / 垂直领域的纵向工业化 / 混合架构优化等）。
+
+            - 在每个方向下，用 2-3 句话深度剖析：后续研究是如何继承、突破甚至质疑原始论文的？
+
+
+            三、 关键节点文献剖析 (Key Citations)
+
+            不要机械地重复摘要！请从语境样本中挑选 2-3 篇最具代表性的后续文献，采用表格形式输出，凸显它们在演进网络中的生态位：
+
+            | 关联层级 | 后续文献标题 | 学术贡献/继承关系 |
+
+            | :--- | :--- | :--- |
+
+            | (填: 理论扩展/垂直落地/综述等) | [提取的标题] | (一句话精准点评其在原始架构上的改进) |
+
+
+            四、 领域态势预判 (Future Outlook)
+
+            结合活跃跟进学者团队和年份趋势，预测该核心技术在未来 1-2 年内最有可能的技术收敛方向或商业落地场景。
+
+
+            【绝对禁忌】
+
+            1. 严禁生成机械化的“标题+作者+摘要”式的流水账列表。
+
+            2. 必须全程保持严谨、客观、思辨的学术口吻，多使用“理论奠基”、“垂直范式”、“特征解耦”、“生态位”等高级学术词汇。
+
+            3. 严格基于提供的数据进行推演，切勿产生数据幻觉。
+
+            【专属动态图谱指令】 请务必在整份报告的**最末尾**，使用分割线隔离，并用以下精准的 Markdown 格式原样输出图谱入口提示（切勿修改其中的变量格式）：
+            **专属多维文献全景图谱已生成** [**点击下方链接，沉浸式探索文献生态网络**]
+
+            https://tmh01.github.io/tupu/index.html?id={{#17771244420170.graph_id#}}
+
+            💡 *注：图中节点体积映射了该文献在当前网络中的核心枢纽度，连线揭示了文献间的知识继承与交叉耦合关系。*'
+        selected: false
+        title: LLM 12
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '17766732088550'
+      position:
+        x: 1776.6295974079374
+        y: 405.57770786628566
+      positionAbsolute:
+        x: 1776.6295974079374
+        y: 405.57770786628566
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        answer: '{{#17766732088550.text#}}'
+        isInIteration: false
+        isInLoop: false
+        selected: false
+        title: 直接回复 12
+        type: answer
+        variables: []
+      height: 101
+      id: '17766732200070'
+      position:
+        x: 2104.2070980880576
+        y: 397.3001746453741
+      positionAbsolute:
+        x: 2104.2070980880576
+        y: 397.3001746453741
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-314
+            key: ''
+            type: text
+            value: '{{#1774637471461.graph_data_json#}}'
+          type: json
+        default_value:
+        - key: body
+          type: string
+          value: ' '
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: 'Content-Type:application/json
+
+          X-Master-Key:$2a$10$p/4Z.yghDiaj4brDavPBv.64we45C8JT48ni4luD8JI9.TF/ujGra
+
+          X-Bin-Private:false'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 (图谱)
+        type: http-request
+        url: https://api.jsonbin.io/v3/b
+        variables: []
+      height: 156
+      id: '1777116813907'
+      position:
+        x: 1619.8289660698274
+        y: 122.80336750702321
+      positionAbsolute:
+        x: 1619.8289660698274
+        y: 122.80336750702321
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-314
+            key: ''
+            type: text
+            value: '{{#1776648874566.merged_papers_json#}}'
+          type: json
+        default_value:
+        - key: body
+          type: string
+          value: ''
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: 'Content-Type:application/json
+
+          X-Master-Key:$2a$10$p/4Z.yghDiaj4brDavPBv.64we45C8JT48ni4luD8JI9.TF/ujGra
+
+          X-Bin-Private:false'
+        isInIteration: false
+        isInLoop: false
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 (图谱) (1)
+        type: http-request
+        url: https://api.jsonbin.io/v3/b
+        variables: []
+      height: 156
+      id: '17771175082840'
+      position:
+        x: 1025.4189583246412
+        y: 321.1131059966833
+      positionAbsolute:
+        x: 1025.4189583246412
+        y: 321.1131059966833
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "\nimport json\n\ndef main(res: str) -> dict:\n    try:\n        data\
+          \ = json.loads(res)\n        return {\"graph_id\": data[\"metadata\"][\"\
+          id\"]}\n    except Exception:\n        return {\"graph_id\": \"error\"}"
+        code_language: python3
+        outputs:
+          graph_id:
+            children: null
+            type: string
+        selected: false
+        title: 图谱ID提取
+        type: code
+        variables:
+        - value_selector:
+          - '1777116813907'
+          - body
+          value_type: string
+          variable: res
+      height: 50
+      id: '1777118612441'
+      position:
+        x: 1770.2566055176817
+        y: -14.218162703640829
+      positionAbsolute:
+        x: 1770.2566055176817
+        y: -14.218162703640829
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "\nimport json\n\ndef main(res: str) -> dict:\n    try:\n        data\
+          \ = json.loads(res)\n        return {\"graph_id\": data[\"metadata\"][\"\
+          id\"]}\n    except Exception:\n        return {\"graph_id\": \"error\"}"
+        code_language: python3
+        isInIteration: false
+        isInLoop: false
+        outputs:
+          graph_id:
+            children: null
+            type: string
+        selected: false
+        title: 图谱ID提取 (1)
+        type: code
+        variables:
+        - value_selector:
+          - '17771175082840'
+          - body
+          value_type: string
+          variable: res
+      height: 50
+      id: '17771244420170'
+      position:
+        x: 1344.6837466714878
+        y: 405.57770786628566
+      positionAbsolute:
+        x: 1344.6837466714878
+        y: 405.57770786628566
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: ' '
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+          (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 3
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 3
+        title: Arxiv
+        type: http-request
+        url: '{{#1774636716294.arxiv_url#}}'
+        variables: []
+      height: 158
+      id: '1777127894696'
+      position:
+        x: 422.6904979784347
+        y: -617.32194750658
+      positionAbsolute:
+        x: 422.6904979784347
+        y: -617.32194750658
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: ' '
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: User-Agent:AcademicAgent/1.0 (mailto:rese19973@gmail.com)
+        isInIteration: false
+        isInLoop: false
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 5
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 5
+        title: DBLP
+        type: http-request
+        url: '{{#1774636716294.dblp_url#}}'
+        variables: []
+      height: 158
+      id: '17771279125900'
+      position:
+        x: 422.6904979784347
+        y: -420.46933327391844
+      positionAbsolute:
+        x: 422.6904979784347
+        y: -420.46933327391844
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: ' '
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+          (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+        isInIteration: false
+        isInLoop: false
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 3
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 3
+        title: OpenAlex
+        type: http-request
+        url: '{{#1774636716294.oa_url#}}'
+        variables: []
+      height: 158
+      id: '17771279180490'
+      position:
+        x: 422.6904979784347
+        y: -234.3080739508352
+      positionAbsolute:
+        x: 422.6904979784347
+        y: -234.3080739508352
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: ' '
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: 'User-Agent:AcademicAgent/1.0 (mailto:rese19973@gmail.com)
+
+          x-api-key:pXhdpHiwYv6oxwOiZp8ts3wZoCiRLrea4GDLWPn0
+
+          Accept:application/json'
+        isInIteration: false
+        isInLoop: false
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 5
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 5
+        title: Semantic Scholar
+        type: http-request
+        url: '{{#1774636716294.s2_url#}}'
+        variables: []
+      height: 158
+      id: '17771279199060'
+      position:
+        x: 422.6904979784347
+        y: -46.17215526368014
+      positionAbsolute:
+        x: 422.6904979784347
+        y: -46.17215526368014
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: ' '
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: 'User-Agent:AcademicAgent/1.0 (mailto:rese19973@gmail.com)
+
+          x-api-key:pXhdpHiwYv6oxwOiZp8ts3wZoCiRLrea4GDLWPn0'
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 3
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 3
+        title: GETCITATIONS
+        type: http-request
+        url: '{{#1774642324391.api_url#}}'
+        variables: []
+      height: 158
+      id: '1777128352868'
+      position:
+        x: 406.13543153661146
+        y: 272.6228684034878
+      positionAbsolute:
+        x: 406.13543153661146
+        y: 272.6228684034878
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: ' '
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+          (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 3
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 3
+        title: GETREFERENCES
+        type: http-request
+        url: '{{#17746427235430.api_url#}}'
+        variables: []
+      height: 158
+      id: '1777128606032'
+      position:
+        x: 136.28784853489458
+        y: 819.6578196436722
+      positionAbsolute:
+        x: 136.28784853489458
+        y: 819.6578196436722
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-636
+            key: ''
+            type: text
+            value: '{ "url": "{{#1774624936487.item#}}" }'
+          type: json
+        default_value:
+        - key: body
+          type: string
+          value: ' '
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: 'Content-Type:application/json
+
+          Accept:application/json
+
+          X-Return-Format:markdown'
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1774624936487'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 10
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 60
+        title: HTTP-Jina-Batch
+        type: http-request
+        url: https://r.jina.ai/
+        variables: []
+      height: 156
+      id: '1777128691790'
+      parentId: '1774624936487'
+      position:
+        x: 134
+        y: 68
+      positionAbsolute:
+        x: 602.9434865832063
+        y: 865.9607186923486
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-143
+            key: ''
+            type: text
+            value: '{ "url": "{{#1774634163782.final_url#}}" }'
+          type: json
+        default_value:
+        - key: body
+          type: string
+          value: ' '
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: 'Content-Type:application/json
+
+          Accept:application/json
+
+          X-Return-Format:markdown'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 10
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 60
+        title: HTTP-Jina-Single
+        type: http-request
+        url: https://r.jina.ai/
+        variables: []
+      height: 156
+      id: '1777128852253'
+      position:
+        x: 1083.8546066750714
+        y: 575.8740147759722
+      positionAbsolute:
+        x: 1083.8546066750714
+        y: 575.8740147759722
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        answer: 保存成功
+        selected: false
+        title: 直接回复 8
+        type: answer
+        variables: []
+      height: 98
+      id: '1777136441957'
+      position:
+        x: 808.928915369772
+        y: 1111.1542506824553
+      positionAbsolute:
+        x: 808.928915369772
+        y: 1111.1542506824553
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: 34.376466847781444
+      y: -269.4733481186214
+      zoom: 0.6040446914025636
+  rag_pipeline_variables: []
